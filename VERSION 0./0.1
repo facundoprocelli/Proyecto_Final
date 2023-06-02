@@ -111,24 +111,40 @@ strcpy(especialidades[4], "Comericial..........");
 
 
 
+ 
+ 
+ 
+ 
+ 
+ 
+ -----------------------
+ 
+ 
+ 
+ 
+ #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define maxCaracteres 30
 
 
+//----------------------------------ESTRUCTURAS-----------------------------------------------------------------------
 
+typedef struct
+{
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    int ID;
+    char nombre[maxCaracteres];
+    char apellido[maxCaracteres];
+    char apodo[maxCaracteres];
+    int edad;
+    char nacionalidad[maxCaracteres];
+    int horasVueloAcumuladas;
+    int misionesEspacialesRealizadas;
+    int horasAcumuladasEEI;
+    int estado;
+} astronauta;
 
 
 //---------------------------------FUNCIONES-----------------------------------------------
@@ -148,7 +164,7 @@ void mostrarCatalogoNacionalidades(char nacionalidades[66][maxCaracteres]);
 
 int main()
 {
-cargarAstronautaNuevo();
+    cargarAstronautaNuevo();
 
 }
 
@@ -201,23 +217,23 @@ astronauta cargarApellido()
     return dato;
 }
 
-astronauta cargarApodo(){
+astronauta cargarApodo()
+{
 
-astronauta dato;
-printf("\nApodo: ");
-fflush(stdin);
-gets(dato.apodo);
+    astronauta dato;
+    printf("\nApodo: ");
+    fflush(stdin);
+    gets(dato.apodo);
 
 
 
 
-return dato;
+    return dato;
 }
 
 
 void mostrarDatosAstronauta(astronauta bobolon)
 {
-
 
     printf("\nNOMBRE: %s", bobolon.nombre);
     printf("\nAPELLIDO: %s", bobolon.apellido);
@@ -226,161 +242,176 @@ void mostrarDatosAstronauta(astronauta bobolon)
     printf("\nEDAD: %i", bobolon.edad);
 
     printf("\n");
-}
-
-
-astronauta cargarNacionalidad(){
-
-char nacionalidades[66][maxCaracteres];
-
-baseNacionalidades(nacionalidades);
-
-astronauta dato;
-
-char nacionalidad[maxCaracteres];
-
-printf("\nNacionalidad: ");
-gets(nacionalidad);
-
-int i = 0;
-
-
-
-while(i < 66 ){
-
-    if (strcmp(nacionalidad, nacionalidades[i]) == 0)
-    {
-        strcpy(dato.nacionalidad, nacionalidad);
-       break;
-    }
-    else
-    {
-        i++;
-    }
-}
-
-
-int catalogo = 0;
-
-if(i == 66){
-
-    printf("Ingrese una nacionalidad correcta\nSi quiere ver el catalogo de nacionalidades ingrese 1\nsi quiere cargar la nacionalidad correcta ingrese 0\n");
-    scanf("%i", &catalogo);
-
-    if (catalogo == 1)
-    {
-    mostrarCatalogoNacionalidades(nacionalidades);
-    }
-
-    else if(catalogo == 0){
-
-        printf("\nNacionalidad: ");
-        fflush(stdin);
-        gets(nacionalidad);
-
-       strcpy(dato.nacionalidad, nacionalidad);
-}
-
-
-
-return dato;
-
-}
-
-}
-
-void baseNacionalidades(char nacionalidades[66][maxCaracteres]){
-
-
-
-strcpy(nacionalidades[0],"Rusia");
-strcpy(nacionalidades[1],"Estados Unidos");
-strcpy(nacionalidades[2],"Japon");
-strcpy(nacionalidades[3],"Alemania");
-strcpy(nacionalidades[4],"Italia");
-strcpy(nacionalidades[5],"Canada");
-strcpy(nacionalidades[6],"Francia");
-strcpy(nacionalidades[7],"Kazajistan");
-strcpy(nacionalidades[8],"Paises Bajos");
-strcpy(nacionalidades[9],"Belgica");
-strcpy(nacionalidades[10],"Reino Unido");
-strcpy(nacionalidades[11],"China");
-strcpy(nacionalidades[12],"Costa Rica");
-strcpy(nacionalidades[13],"Suiza");
-strcpy(nacionalidades[14],"Suecia");
-strcpy(nacionalidades[15],"España");
-strcpy(nacionalidades[16],"Israel");
-strcpy(nacionalidades[17],"Ucrania");
-strcpy(nacionalidades[18],"Bulgaria");
-strcpy(nacionalidades[19],"Corea Del Sur");
-strcpy(nacionalidades[20],"Malasia");
-strcpy(nacionalidades[21],"Sudafrica");
-strcpy(nacionalidades[22],"Brasil");
-strcpy(nacionalidades[23],"Dinamarca");
-strcpy(nacionalidades[24],"Afganistan");
-strcpy(nacionalidades[25],"Siria");
-strcpy(nacionalidades[26],"Austria");
-strcpy(nacionalidades[27],"Polonia");
-strcpy(nacionalidades[28],"Eslovaquia");
-strcpy(nacionalidades[29],"India");
-strcpy(nacionalidades[30],"Hungria");
-strcpy(nacionalidades[31],"Cuba");
-strcpy(nacionalidades[32],"Mongolia");
-strcpy(nacionalidades[33],"Vietnam");
-strcpy(nacionalidades[34],"Rumania");
-strcpy(nacionalidades[35],"Arabia Saudita");
-strcpy(nacionalidades[36],"Mexico");
-strcpy(nacionalidades[37],"Argentina");
-strcpy(nacionalidades[38],"Argelia");
-strcpy(nacionalidades[39],"Australia");
-strcpy(nacionalidades[40],"Armenia");
-strcpy(nacionalidades[41],"Bolivia");
-strcpy(nacionalidades[42],"Camerun");
-strcpy(nacionalidades[43],"Qatar");
-strcpy(nacionalidades[44],"Chile");
-strcpy(nacionalidades[45],"Colombia");
-strcpy(nacionalidades[46],"Costa Rica");
-strcpy(nacionalidades[47],"Croacia");
-strcpy(nacionalidades[48],"Guatemala");
-strcpy(nacionalidades[49],"Honduras");
-strcpy(nacionalidades[50],"Indonesia");
-strcpy(nacionalidades[51],"Iran");
-strcpy(nacionalidades[52],"Irak");
-strcpy(nacionalidades[53],"Islandia");
-strcpy(nacionalidades[54],"Marruecos");
-strcpy(nacionalidades[55],"Nigeria");
-strcpy(nacionalidades[56],"Noruega");
-strcpy(nacionalidades[57],"Nueva Zelanda");
-strcpy(nacionalidades[58],"Panama");
-strcpy(nacionalidades[59],"Paraguay");
-strcpy(nacionalidades[60],"Peru");
-strcpy(nacionalidades[61],"Portugal");
-strcpy(nacionalidades[62],"Gran Bretaña");
-strcpy(nacionalidades[63],"Serbia");
-strcpy(nacionalidades[64],"Turquia");
-strcpy(nacionalidades[65],"Uruguay");
-strcpy(nacionalidades[66],"Venezuela");
 
 }
 
 
+astronauta cargarNacionalidad()
+{
 
-int cargarEdad(){
+    char nacionalidades[66][maxCaracteres];
 
-int edad;
+    baseNacionalidades(nacionalidades);
 
-printf("\nEdad: ");
-scanf("%i", &edad);
+    astronauta dato;
 
+    char nacionalidad[maxCaracteres];
 
-return edad;
-
-}
-
-void mostrarCatalogoNacionalidades(char nacionalidades[66][maxCaracteres]){
+    printf("\nNacionalidad: ");
+    gets(nacionalidad);
 
     int i = 0;
-    while(i < 66){
+    int listo = 0;
+    int catalogo;
+
+    while(listo == 0)
+    {
+        while(i < 67 && listo == 0)
+        {
+
+            if (strcmp(nacionalidad, nacionalidades[i]) == 0)
+            {
+                strcpy(dato.nacionalidad, nacionalidad);
+                listo = 1;
+            }
+            else
+            {
+                i++;
+            }
+        }
+
+
+
+        if(i == 67)
+        {
+
+            printf("Ingrese una nacionalidad correcta\nSi quiere ver el catalogo de nacionalidades ingrese 1\nsi quiere cargar la nacionalidad correcta ingrese 0\n");
+            scanf("%i", &catalogo);
+
+            if (catalogo == 1)
+            {
+                mostrarCatalogoNacionalidades(nacionalidades);
+
+                printf("\nNacionalidad: ");
+
+                fflush(stdin);
+                gets(nacionalidad);
+                strcpy(dato.nacionalidad, nacionalidad);
+                listo = 1;
+
+            }
+
+            else if(catalogo == 0)
+            {
+
+                printf("\nNacionalidad: ");
+                fflush(stdin);
+                gets(nacionalidad);
+
+                strcpy(dato.nacionalidad, nacionalidad);
+                listo = 1;
+            }
+        }
+
+    }
+
+    return dato;
+}
+
+void baseNacionalidades(char nacionalidades[66][maxCaracteres])
+{
+
+    strcpy(nacionalidades[0],"Rusia");
+    strcpy(nacionalidades[1],"Estados Unidos");
+    strcpy(nacionalidades[2],"Japon");
+    strcpy(nacionalidades[3],"Alemania");
+    strcpy(nacionalidades[4],"Italia");
+    strcpy(nacionalidades[5],"Canada");
+    strcpy(nacionalidades[6],"Francia");
+    strcpy(nacionalidades[7],"Kazajistan");
+    strcpy(nacionalidades[8],"Paises Bajos");
+    strcpy(nacionalidades[9],"Belgica");
+    strcpy(nacionalidades[10],"Reino Unido");
+    strcpy(nacionalidades[11],"China");
+    strcpy(nacionalidades[12],"Costa Rica");
+    strcpy(nacionalidades[13],"Suiza");
+    strcpy(nacionalidades[14],"Suecia");
+    strcpy(nacionalidades[15],"España");
+    strcpy(nacionalidades[16],"Israel");
+    strcpy(nacionalidades[17],"Ucrania");
+    strcpy(nacionalidades[18],"Bulgaria");
+    strcpy(nacionalidades[19],"Corea Del Sur");
+    strcpy(nacionalidades[20],"Malasia");
+    strcpy(nacionalidades[21],"Sudafrica");
+    strcpy(nacionalidades[22],"Brasil");
+    strcpy(nacionalidades[23],"Dinamarca");
+    strcpy(nacionalidades[24],"Afganistan");
+    strcpy(nacionalidades[25],"Siria");
+    strcpy(nacionalidades[26],"Austria");
+    strcpy(nacionalidades[27],"Polonia");
+    strcpy(nacionalidades[28],"Eslovaquia");
+    strcpy(nacionalidades[29],"India");
+    strcpy(nacionalidades[30],"Hungria");
+    strcpy(nacionalidades[31],"Cuba");
+    strcpy(nacionalidades[32],"Mongolia");
+    strcpy(nacionalidades[33],"Vietnam");
+    strcpy(nacionalidades[34],"Rumania");
+    strcpy(nacionalidades[35],"Arabia Saudita");
+    strcpy(nacionalidades[36],"Mexico");
+    strcpy(nacionalidades[37],"Argentina");
+    strcpy(nacionalidades[38],"Argelia");
+    strcpy(nacionalidades[39],"Australia");
+    strcpy(nacionalidades[40],"Armenia");
+    strcpy(nacionalidades[41],"Bolivia");
+    strcpy(nacionalidades[42],"Camerun");
+    strcpy(nacionalidades[43],"Qatar");
+    strcpy(nacionalidades[44],"Chile");
+    strcpy(nacionalidades[45],"Colombia");
+    strcpy(nacionalidades[46],"Costa Rica");
+    strcpy(nacionalidades[47],"Croacia");
+    strcpy(nacionalidades[48],"Guatemala");
+    strcpy(nacionalidades[49],"Honduras");
+    strcpy(nacionalidades[50],"Indonesia");
+    strcpy(nacionalidades[51],"Iran");
+    strcpy(nacionalidades[52],"Irak");
+    strcpy(nacionalidades[53],"Islandia");
+    strcpy(nacionalidades[54],"Marruecos");
+    strcpy(nacionalidades[55],"Nigeria");
+    strcpy(nacionalidades[56],"Noruega");
+    strcpy(nacionalidades[57],"Nueva Zelanda");
+    strcpy(nacionalidades[58],"Panama");
+    strcpy(nacionalidades[59],"Paraguay");
+    strcpy(nacionalidades[60],"Peru");
+    strcpy(nacionalidades[61],"Portugal");
+    strcpy(nacionalidades[62],"Gran Bretaña");
+    strcpy(nacionalidades[63],"Serbia");
+    strcpy(nacionalidades[64],"Turquia");
+    strcpy(nacionalidades[65],"Uruguay");
+    strcpy(nacionalidades[66],"Venezuela");
+
+}
+
+
+
+int cargarEdad()
+{
+
+    int edad;
+
+    printf("\nEdad: ");
+    scanf("%i", &edad);
+
+
+    return edad;
+
+}
+
+void mostrarCatalogoNacionalidades(char nacionalidades[66][maxCaracteres])
+{
+
+    int i = 0;
+    while(i < 66)
+    {
 
         printf("%s\n", nacionalidades[i]);
         i++;
