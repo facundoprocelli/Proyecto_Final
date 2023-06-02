@@ -1,0 +1,17 @@
+
+------------------------------PROFESIONES-------------------------------------------
+
+void especialidadesAstronauta(){
+
+char especialidades[5][maxCaracteres];
+
+
+especialidades[0] = "Piloto";
+especialidades[1] = "Astrofisico";
+especialidades[2] = "Ingeniero Espacial";
+especialidades[3] = "Biologo";
+especialidades[4] = "Comercial";
+}
+
+
+-------------------------------------------------------------------------------------
