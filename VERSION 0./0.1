@@ -1,3 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+#define maxCaracteres 50
+#define cantEspecialidades 5
+
+
+
 typedef struct
 {
 
@@ -7,8 +16,85 @@ typedef struct
     char apodo[maxCaracteres];
     int edad;
     char nacionalidad[maxCaracteres];
+    char especialidad[maxCaracteres];
     int horasVueloAcumuladas;
     int misionesEspacialesRealizadas;
     int horasAcumuladasEEI;
     int estado;
 } astronauta;
+
+//Declaracion de funciones
+
+void seleccionEspecialidad();
+void mostrarEspecialidades(char especialidades[][maxCaracteres]);
+void especialidadesAstronauta(char especialidades[][maxCaracteres]);
+
+
+//Main
+
+int main()
+{
+    seleccionEspecialidad();
+    return 0;
+}
+
+
+// ------Selecciona la especialidad
+void seleccionEspecialidad(){
+
+    int seleccion;
+    astronauta astro;
+
+    char especialidades[cantEspecialidades][maxCaracteres];
+    especialidadesAstronauta(especialidades);
+
+    printf("Que especialidad desea seleccionar? \n");
+    mostrarEspecialidades(especialidades);
+    scanf("%i", &seleccion);
+
+    while (seleccion >= cantEspecialidades){
+
+        printf("Opcion inexistente, pruebe con una opcion del menu \n");
+        scanf("%i", &seleccion);
+    }
+
+    strcpy(astro.especialidad,especialidades[seleccion]);
+
+    printf(astro.especialidad);
+
+}
+
+//---------Muestra las especialidades------
+
+void mostrarEspecialidades(char especialidades[][maxCaracteres]){
+
+int i = 0;
+
+while (i< cantEspecialidades){
+
+
+    printf("%s", especialidades[i]);
+    printf("%i \n",i);
+    i++;
+}
+}
+
+
+//----Especialidades almacenadas---------
+void especialidadesAstronauta(char especialidades[][maxCaracteres]){
+
+
+
+strcpy(especialidades[0], "Piloto..............");
+strcpy(especialidades[1], "Astrofisico.........");
+strcpy(especialidades[2], "Ingeniero Espacial..");
+strcpy(especialidades[3], "Biologo.............");
+strcpy(especialidades[4], "Comericial..........");
+}
+
+
+
+///Ver de agregar una funcion que agregue los puntos al final de las opciones par para que quede fachita
+
+
+
