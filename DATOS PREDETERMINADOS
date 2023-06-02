@@ -1,17 +1,63 @@
 
-------------------------------PROFESIONES-------------------------------------------
 
+----------------------- ESPECIALIDADES-----------------------------------------
 void especialidadesAstronauta(){
 
 char especialidades[5][maxCaracteres];
 
-
-especialidades[0] = "Piloto";
-especialidades[1] = "Astrofisico";
-especialidades[2] = "Ingeniero Espacial";
-especialidades[3] = "Biologo";
-especialidades[4] = "Comercial";
+strcpy(especialidades[0, "Piloto"]);
+strcpy(especialidades[1, "Astrofísico"]);
+strcpy(especialidades[2, "Ingeniero Espacial"]);
+strcpy(especialidades[3, "Biologo"]);
+strcpy(especialidades[4, "Comericial"]);
 }
 
+-----------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------
+-------------------------------TIPOS DE NAVE---------------------------------
+void tipoDeNave() {
+
+char tipoNave[3][maxCaracteres];
+
+
+strcpy(tipoNave[0, "Starship"]);
+strcpy(tipoNave[1, "Falcon 9"]);
+strcpy(tipoNave[2, "Falcon Heavy"]);
+}
+
+-----------------------------------------------------------------------------
+
+------------------------------ESTADO DE NAVE---------------------------------
+void estadoDeNave(){
+
+char estadoNave[4][maxCaracteres];
+
+strcpy(esatdoNave[0, "Mantenimiento"]);
+strcpy(esatdoNave[0, "Lista para Usar"]);
+strcpy(esatdoNave[0, "En Mision"]);
+strcpy(esatdoNave[0, "De baja"]);
+}
+
+------------------------------------------------------------------------------
+
+------------------------------ESTADO DE MISION--------------------------------
+
+void estadoDeMision(){
+
+
+char estadoMision[5][maxCaracteres];
+
+
+strcpy(estadoMision[0, "Listo"]);
+strcpy(estadoMision[1, "En vuelo"]);
+strcpy(estadoMision[2, "Retornada"]);
+strcpy(estadoMision[3, "Cancelada"]);
+strcpy(estadoMision[4, "Fallida"]);
+}
+
+------------------------------------------------------------------------------
+
+---------------------------------- NACIONALIDADES-------------------------------
+
+
+
