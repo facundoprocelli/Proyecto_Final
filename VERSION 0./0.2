@@ -1,0 +1,225 @@
+#include <stdio.h>
+#include <string.h>
+
+#define maxCaracteres 100
+#define cantNacionalidades 10
+#define cantEspecialidades 5
+
+typedef struct {
+    char nombre[maxCaracteres];
+    char apellido[maxCaracteres];
+    char apodo[maxCaracteres];
+    char especialidad[maxCaracteres];
+    char nacionalidad[maxCaracteres];
+    int edad;
+} astronauta;
+
+astronauta cargarAstronautaNuevo();
+void cargarNombre(astronauta* astro);
+void cargarApellido(astronauta* astro);
+void cargarApodo(astronauta* astro);
+void mostrarDatosAstronauta(astronauta astro);
+int cargarEdad();
+void cargarNacionalidad(astronauta* astro);
+void nacionalidadesAstronauta(char nacionalidades[cantNacionalidades][maxCaracteres]);
+void mostrarNacionalidades(char nacionalidades[cantNacionalidades][maxCaracteres]);
+
+
+//-------------------------MAIN-------------------------
+int main()
+{
+    astronauta nuevoAstronauta = cargarAstronautaNuevo();
+    mostrarDatosAstronauta(nuevoAstronauta);
+
+    return 0;
+}
+
+//-----------------CARGAR NUEVO ASTRONAUTA---------------------
+
+astronauta cargarAstronautaNuevo()
+{
+    astronauta astro;
+
+    cargarNombre(&astro);
+    cargarApellido(&astro);
+    cargarApodo(&astro);
+    cargarNacionalidad(&astro);  // Comentado temporalmente, ya que no está implementada
+    cargarEspecialidad(&astro);  // Comentado temporalmente, ya que no está implementada
+    astro.edad = cargarEdad();
+
+    return astro;
+}
+
+
+//--------------CARGAR NOMBRE-----------------
+void cargarNombre(astronauta* astro)
+{
+    char nombre[maxCaracteres];
+
+    printf("\nNombre: ");
+    fflush(stdin);
+    gets(nombre);
+    strcpy(astro->nombre, nombre);
+}
+
+//--------------CARGAR APELLIDO-----------------
+
+void cargarApellido(astronauta* astro)
+{
+    char apellido[maxCaracteres];
+
+    printf("\nApellido: ");
+    fflush(stdin);
+    gets(apellido);
+    strcpy(astro->apellido, apellido);
+}
+
+
+//--------------CARGAR APODO-----------------
+void cargarApodo(astronauta* astro)
+{
+    char apodo[maxCaracteres];
+
+    printf("\nApodo: ");
+    fflush(stdin);
+    gets(apodo);
+    strcpy(astro->apodo, apodo);
+}
+
+
+//--------------MOSTRAR DATOS ASTRONAUTA-----------------
+void mostrarDatosAstronauta(astronauta astro)
+{
+    printf("\nNOMBRE: %s", astro.nombre);
+    printf("\nAPELLIDO: %s", astro.apellido);
+    printf("\nAPODO: %s", astro.apodo);
+    printf("\nESPECIALIDAD: %s", astro.especialidad);
+    printf("\nNACIONALIDAD: %s", astro.nacionalidad);
+    printf("\nEDAD: %i", astro.edad);
+    printf("\n");
+}
+
+
+//--------------CARGAR EDAD-----------------
+int cargarEdad()
+{
+
+    int edad;
+
+    printf("\nEdad: ");
+    scanf("%i", &edad);
+
+
+    return edad;
+
+}
+
+
+//--------------CARGAR NACIONALIDAD-----------------
+void cargarNacionalidad(astronauta* astro)
+{
+    int seleccion;
+
+    char nacionalidades[cantNacionalidades][maxCaracteres];
+    nacionalidadesAstronauta(nacionalidades);
+
+    printf("Seleccione la Nacionalidad:\n");
+    mostrarNacionalidades(nacionalidades);
+    scanf("%i", &seleccion);
+
+    while (seleccion >= cantNacionalidades)
+    {
+        printf("Opcion inexistente, pruebe con una opcion del menu:\n");
+        scanf("%i", &seleccion);
+    }
+
+    strcpy(astro->nacionalidad, nacionalidades[seleccion]);
+}
+
+
+//--------------LISTA DE NACIONALIDADES-----------------
+void nacionalidadesAstronauta(char nacionalidades[cantNacionalidades][maxCaracteres])
+{
+    strcpy(nacionalidades[0], "Alemania");
+    strcpy(nacionalidades[1], "Argentina");
+    strcpy(nacionalidades[2], "Brasil");
+    strcpy(nacionalidades[3], "Canada");
+    strcpy(nacionalidades[4], "China");
+    strcpy(nacionalidades[5], "España");
+    strcpy(nacionalidades[6], "Estados Unidos");
+    strcpy(nacionalidades[7], "Italia");
+    strcpy(nacionalidades[8], "Japon");
+    strcpy(nacionalidades[9], "Rusia");
+}
+
+
+//--------------MOSTRAR NACIONALIDADES-----------------
+void mostrarNacionalidades(char nacionalidades[cantNacionalidades][maxCaracteres])
+{
+    int i = 0;
+    while (i < cantNacionalidades)
+    {
+        printf("%i = %s\n", i, nacionalidades[i]);
+        i++;
+    }
+}
+
+//--------------CARGAR ESPECIALIDADES-----------------
+
+void  cargarEspecialidad(astronauta* astro)
+{
+
+    int seleccion;
+
+    char especialidades[cantEspecialidades][maxCaracteres];
+    especialidadesAstronauta(especialidades);
+
+    printf("Seleccione la especialidad \n");
+    mostrarEspecialidades(especialidades);
+    scanf("%i", &seleccion);
+
+    while (seleccion >= cantEspecialidades)
+    {
+
+        printf("Opcion inexistente, pruebe con una opcion del menu \n");
+        scanf("%i", &seleccion);
+    }
+
+    strcpy(astro->especialidad,especialidades[seleccion]);
+
+}
+
+//--------------MSOTRAR ESPECIALIDADES-----------------
+
+void mostrarEspecialidades(char especialidades[][maxCaracteres])
+{
+
+    int i = 0;
+
+    while (i< cantEspecialidades)
+    {
+
+        printf( "%i = ", i);
+        printf("%s \n", especialidades[i]);
+
+
+        i++;
+    }
+}
+
+
+//--------------LISTA DEESPECIALIDADES-----------------
+void especialidadesAstronauta(char especialidades[][maxCaracteres])
+{
+
+
+    printf("\n");
+    strcpy(especialidades[0], "Piloto");
+    strcpy(especialidades[1], "Astrofisico");
+    strcpy(especialidades[2], "Ingeniero Espacial");
+    strcpy(especialidades[3], "Biologo");
+    strcpy(especialidades[4], "Comericial");
+}
+
+
+
