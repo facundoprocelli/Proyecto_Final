@@ -66,7 +66,7 @@ int  validacionString(char string[maxCaracteres]);
 
 int validacionEspecialidad (int seleccion);
 
-int  validacionNacionalidad(int seleccion, char nacionalidades[cantNacionalidades][maxCaracteres]);
+int validacionNacionalidad(char nacionalidad[maxCaracteres], char nacionalidades[cantNacionalidades][maxCaracteres]);
 
 
 //---------------------------------MAIN--------------------------------------------------------------------------------
@@ -260,40 +260,75 @@ void mostrarDatosAstronauta(astronauta astro)
 //CARGA Y VALIDA LA NACIONALIDAD POR MEDIO DE UN MENU------------------------------------------------------------------
 void cargarNacionalidad(astronauta* astro)
 {
-
-    int seleccion;
+    int catalogo;
     int valido;
     char nacionalidades[cantNacionalidades][maxCaracteres];
 
     baseNacionalidades(nacionalidades);
 
-    mostrarCatalogoNacionalidades(nacionalidades);
+    char nacionalidad[maxCaracteres];
 
-    printf("Insertar numero correspondiente a la nacionalidad: ");
-    scanf("%i", &seleccion);
+    printf("NACIONALIDAD: ");
+    fflush(stdin);
+    gets(nacionalidad);
 
-    valido = validacionNacionalidad(seleccion, nacionalidades);
+    valido = validacionNacionalidad(nacionalidad, nacionalidades);
 
     if(valido == 1)
     {
-        strcpy(astro->nacionalidad, nacionalidades[seleccion-1]);
+
+        strcpy(astro->nacionalidad, nacionalidad);
     }
-    else if (valido == 0)
+    else if(valido == 0)
     {
 
-        while (valido == 0)
+        while(valido == 0)
         {
 
-            printf("Insegrese un un numero que pertenezca a una nacionalidad: ");
-            scanf("%i", &seleccion);
+            printf("Cargar una nacionalidad existente:\n");
+            printf("Si quiere ver el listado de nacionalidades ordenado alfabeticamente inserte 1\nInserte 0 para cargar la nacionalidad correcta:  ");
+            scanf("%i", &catalogo);
 
-            valido = validacionNacionalidad(seleccion, nacionalidades);
+            if(catalogo == 1)
+            {
+
+                mostrarCatalogoNacionalidades(nacionalidades);
+            }
+
+            printf("NACIONALIDAD\n");
+            fflush(stdin);
+            gets(nacionalidad);
+
+
+            valido = validacionNacionalidad(nacionalidad, nacionalidades);
         }
-
-        strcpy(astro->nacionalidad, nacionalidades[seleccion - 1]);
     }
+
+    strcpy(astro->nacionalidad, nacionalidad);
 }
 //---------------------------------------------------------------------------------------------------------------------
+
+//VALIDA QUE LA NACIONALIDAD INSERTADA SEA VALIDA CON RESPECTO A LOS PAISES ACTUALES DEL MUNDO-------------------------
+int validacionNacionalidad(char nacionalidad[maxCaracteres], char nacionalidades[cantNacionalidades][maxCaracteres])
+{
+
+    int i;
+    int valido;
+
+    for(i = 0; i < cantNacionalidades; i++)
+    {
+
+        if(strcmp(nacionalidad, nacionalidades[i]) == 0)
+        {
+            return 1;
+        }
+
+    }
+
+    return 0;
+}
+//---------------------------------------------------------------------------------------------------------------------
+
 
 
 //CARGA EN LA MATRIZ INGRESADA TODOS LOS PAISES VALIDOS ACTUALMENTE----------------------------------------------------
@@ -602,13 +637,15 @@ void cargarEdad(astronauta* astro)
 {
 
     int edad;
+    int val;
 
     printf("\nEdad: ");
     scanf("%i", &edad);
 
+
     int valido = validacionEdad(edad);
 
-    if(valido == 1)
+    if(valido == 1 )
     {
         astro->edad = edad;
     }
@@ -618,7 +655,7 @@ void cargarEdad(astronauta* astro)
         while (valido == 0)
         {
 
-            printf("\nInsertar una edad valida(+18 y -100)\n");
+            printf("\nInsertar una edad valida(+18 y -100)\nEDAD: ");
             scanf("%i", &edad);
 
             valido = validacionEdad(edad);
@@ -652,7 +689,6 @@ int validacionEdad(int edad)
 //---------------------------------------------------------------------------------------------------------------------
 
 
-
 //MUESTRA EL CATALOGO DE 213 PAISES Y LE ASIGNA UN VALOR PARA INSERTAR A CADA UNO DE ELLOS-----------------------------
 void mostrarCatalogoNacionalidades(char nacionalidades[cantNacionalidades][maxCaracteres])
 {
@@ -673,25 +709,6 @@ void mostrarCatalogoNacionalidades(char nacionalidades[cantNacionalidades][maxCa
 //---------------------------------------------------------------------------------------------------------------------
 
 
-//VALIDA QUE EL NUMERO INSERTADO PERTENEZCA A ALGUNO DE LOS NUMEROS ASOCIADOS A LOS PAISES DEL CATALOGO----------------
-
-int validacionNacionalidad(int seleccion, char nacionalidades[cantNacionalidades][maxCaracteres])
-{
-
-    int valido;
-
-    if(seleccion <= cantNacionalidades && seleccion > 0)
-    {
-        valido = 1;
-    }
-    else if (seleccion > cantNacionalidades || seleccion < 1)
-    {
-        valido = 0;
-    }
-    return valido;
-}
-//---------------------------------------------------------------------------------------------------------------------
-
 
 //CARGA LA ESPECIALIDAD POR MEDIO DE UN MENU---------------------------------------------------------------------------
 void  cargarEspecialidad(astronauta* astro)
@@ -708,36 +725,42 @@ void  cargarEspecialidad(astronauta* astro)
 
     int valido = validacionEspecialidad(seleccion);
 
-    if(valido == 1){
+    if(valido == 1)
+    {
 
         strcpy(astro->especialidad,especialidades[seleccion - 1]);
 
     }
-    else if (valido == 0){
+    else if (valido == 0)
+    {
 
-    while (valido == 0){
+        while (valido == 0)
+        {
 
-        printf("Inserta un numero asociado a una especialidad\nESPECIALIDAD: ");
-        scanf("%i", &seleccion);
+            printf("Inserta un numero asociado a una especialidad\nESPECIALIDAD: ");
+            scanf("%i", &seleccion);
 
-        valido = validacionEspecialidad(seleccion);
-    }
+            valido = validacionEspecialidad(seleccion);
+        }
     }
     strcpy(astro->especialidad,especialidades[seleccion - 1]);
 }
 //---------------------------------------------------------------------------------------------------------------------
 
 //VALIDA QUE EL NUMERO INSERTADO ESTE ASOCIADO A ALGUNO DE LAS ESPECIALIDADES MOSTRADAS EN EL MENU---------------------
-int validacionEspecialidad (int seleccion){
+int validacionEspecialidad (int seleccion)
+{
 
     int valido = 0;
 
-    if(seleccion <= cantEspecialidades && seleccion > 0){
+    if(seleccion <= cantEspecialidades && seleccion > 0)
+    {
 
         valido = 1;
 
     }
-    else {
+    else
+    {
 
         valido = 0;
     }
