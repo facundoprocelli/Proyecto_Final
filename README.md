@@ -9,3 +9,7 @@ VERSION 0.1.1: Acomodar y limpiar codigo, solucion de bugs;
 VERSION 0.2: Funciones sin bugs ni errores;
 
 VERSION 0.2.1 Implementacion de control de ingreso de dato en las funciones;
+
+VERSION 0.2.2
+
+VERSION 0.2.3 Correccion de errores de ortografia y generales. 
