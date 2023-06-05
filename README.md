@@ -10,6 +10,8 @@ VERSION 0.2: Funciones sin bugs ni errores;
 
 VERSION 0.2.1 Implementacion de control de ingreso de dato en las funciones;
 
-VERSION 0.2.2
+VERSION 0.2.2 Correccion de erores;
 
-VERSION 0.2.3 Correccion de errores de ortografia y generales. 
+VERSION 0.2.3 Correccion de errores de ortografia y generales;
+
+VERSION 0.3 Creación de archivo de Astronautas, Astronautas predeterminados y correccion de errores;
