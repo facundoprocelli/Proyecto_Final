@@ -15,3 +15,5 @@ VERSION 0.2.2 Correccion de erores;
 VERSION 0.2.3 Correccion de errores de ortografia y generales;
 
 VERSION 0.3 Creación de archivo de Astronautas, Astronautas predeterminados y correccion de errores;
+
+VERSION 0.3.1 Integracion de Funciones y correcciones de estilo;
