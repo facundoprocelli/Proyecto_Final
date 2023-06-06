@@ -18,4 +18,8 @@ VERSION 0.3 Creación de archivo de Astronautas, Astronautas predeterminados y c
 
 VERSION 0.3.1 Integracion de Funciones y correcciones de estilo;
 
-VERSION 0.3.2 Optimizaión de funciones y correción de errores
+VERSION 0.3.2 Optimizaión de funciones y correción de errores;
+
+VERSION 0.3.3 Implementacion de la busqueda por ID;
+
+VERSION 0.4 Solucion final al problema de guardar archivos e implementacion completa de la busqueda por ID;
