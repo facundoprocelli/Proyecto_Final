@@ -28,3 +28,7 @@ VERSION 0.4.1 Implementacion de función de cambio de estado actual del astronau
 
 VERSION 0.4.2 Correcion de estilos y errores.
 
+VERSION 0.4.3
+
+VERSION 0.4.4 Correccion de erroes, implementacion de funciones para cambiar nombre, cambios de estilos y organización de codigo
+
