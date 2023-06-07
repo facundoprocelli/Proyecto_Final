@@ -24,4 +24,4 @@ VERSION 0.3.3 Implementacion de la busqueda por ID;
 
 VERSION 0.4 Solucion final al problema de guardar archivos e implementacion completa de la busqueda por ID;
 
-VERSION 0.4.1 Implementacion de dunción de cambio de estado actual del astronauta, con busqueda por id
+VERSION 0.4.1 Implementacion de función de cambio de estado actual del astronauta, con busqueda por id
