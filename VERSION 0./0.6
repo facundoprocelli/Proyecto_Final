@@ -201,7 +201,12 @@ int main()
         printf("\n Ingrese 'si', para hacer una nueva operacion\n Ingrese 'no', para terminar el programa \n ");
         fflush(stdin);
         gets(valor);
-        saludoFinal(valor);
+        
+        if(strcmp(valor, "no") == 0){
+
+        reiniciarSistema();
+        saludoFinal();
+        }
 
         while (strcmp(valor, "si") != 0 && strcmp(valor, "no") != 0 )
         {
