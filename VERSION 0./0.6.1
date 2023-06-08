@@ -376,6 +376,59 @@ printf("|3| Mostrar astronautas retirados\n");
 
 }
 
+//REINICIAR SISTEMA
+void reiniciarSistema()
+{
+
+    int reiniciador;
+    char confirmacion[maxCaracteres];
+
+    printf("|1| Reiniciar sistema\n|0|Seguir con los datos cargados\n");
+    scanf("%i", &reiniciador);
+
+    while (reiniciador != 1 && reiniciador != 0)
+    {
+
+        printf("Ingrese un valor valido\n");
+        printf("|1| Reiniciar sistema\n|0|Seguir con los datos cargados\n");
+        scanf("%i", &reiniciador);
+    }
+
+
+    while(reiniciador == 1)
+    {
+
+        printf("Escriba CONFIRMAR, para seguir ");
+        fflush(stdin);
+        gets(confirmacion);
+
+        if  (strcmp(confirmacion, "CONFIRMAR") == 0)
+        {
+
+            astronautasPredeterminados();
+            reiniciador =0;
+
+        }
+
+        else
+        {
+            printf("\nAsegurese de escribir CONFIRMAR de forma identica\n");
+            printf("\n|1| Intentar neuvamente\n|2| Cerrar programa \n");
+            int val;
+            scanf("%i", &val);
+
+            if(val == 1)
+            {
+                reiniciador = 1;
+            }
+            else
+                reiniciador = 0;
+        }
+
+
+    }
+}
+
 
 
 
