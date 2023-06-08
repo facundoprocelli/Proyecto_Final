@@ -24,14 +24,16 @@ VERSION 0.3.3 Implementacion de la busqueda por ID;
 
 VERSION 0.4 Solucion final al problema de guardar archivos e implementacion completa de la busqueda por ID;
 
-VERSION 0.4.1 Implementacion de función de cambio de estado actual del astronauta, con busqueda por id
+VERSION 0.4.1 Implementacion de función de cambio de estado actual del astronauta, con busqueda por id;
 
-VERSION 0.4.2 Correcion de estilos y errores.
+VERSION 0.4.2 Correcion de estilos y errores;
 
-VERSION 0.4.3 Correccion de errores.
+VERSION 0.4.3 Correccion de errores;
 
-VERSION 0.4.4 Correccion de erroes, implementacion de funciones para cambiar nombre, cambios de estilos y organización de codigo
+VERSION 0.4.4 Correccion de erroes, implementacion de funciones para cambiar nombre, cambios de estilos y organización de codigo;
 
-VERSION 0.5 Correcion de errores, implementacion de funciones cambiar apellido, apodo, edad,nacionalidad,horas acumuladas,horas eei, misiones realizadas y creacion de una funcion que muestra el menu de ID
+VERSION 0.5 Correcion de errores, implementacion de funciones cambiar apellido, apodo, edad,nacionalidad,horas acumuladas,horas eei, misiones realizadas y creacion de una funcion que muestra el menu de ID;
 
-VERSION 0.5.1 Implementacion de menu de ID de forma beta probablemente y correccion de estilo.
+VERSION 0.5.1 Implementacion de menu de ID de forma beta probablemente y correccion de estilo;
+
+VERSION 0.6 Implementación de funciones para mostrar astronautas segun condiciones;
