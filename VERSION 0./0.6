@@ -149,6 +149,8 @@ void cambiarHorasEnEEI();
 
 void cambiarMisionesEspaciales();
 
+void reiniciarSistema();
+
 
 //---------------------------------MAIN--------------------------------------------------------------------------------
 
@@ -209,6 +211,47 @@ int main()
         }
     }
 }
+
+//REINICIAR SISTEMA
+void reiniciarSistema(){
+
+int reiniciador;
+
+printf("|1| Reiniciar sistema\n|0|Seguir con los datos cargados\n");
+scanf("%i", &reiniciador);
+
+if(reiniciador == 1){
+
+    astronautasPredeterminados();
+
+}
+else if (reiniciador == 0){
+
+    return 0;
+
+}
+else {
+
+    while (reiniciador != 1 && reiniciador != 0){
+
+        printf("Ingrese un valor valido\n");
+        printf("|1| Reiniciar sistema\n|0|Seguir con los datos cargados\n");
+        scanf("%i", &reiniciador);
+    }
+
+    if(reiniciador == 1){
+
+    astronautasPredeterminados();
+
+}
+else if (reiniciador == 0){
+
+    return 0;
+
+    }
+  }
+}
+
 
 //-----------OPCIONES DE ACIONES------------
 
