@@ -45,3 +45,5 @@ VERSION 0.6.1 Implementacion de sistema de seguridad para reiniciar base de dato
 VERSION 0.6.2 Correcion de errores y estilos;
 
 VERSION 0.6.3 Implementacion de función de confirmación de ID;
+
+VERSION 0.6.4 Implementacion de confirmacion de valores de entrada;
