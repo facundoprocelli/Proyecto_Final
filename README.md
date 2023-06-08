@@ -38,6 +38,8 @@ VERSION 0.5.1 Implementacion de menu de ID de forma beta probablemente y correcc
 
 VERSION 0.5.2 Implementación de funciones para mostrar astronautas segun condiciones;
 
-VERSION 0.6 Implementación de sistema para reiniciar la base de datos
+VERSION 0.6 Implementación de sistema para reiniciar la base de datos;
 
-VERSION 0.6.1 Correcion estilo y errores.
+VERSION 0.6.1 Implementacion de sistema de seguridad para reiniciar base de datos;
+
+VERSION 0.6.2 Correcion de errores y estilos;
