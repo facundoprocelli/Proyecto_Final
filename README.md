@@ -36,4 +36,6 @@ VERSION 0.5 Correcion de errores, implementacion de funciones cambiar apellido, 
 
 VERSION 0.5.1 Implementacion de menu de ID de forma beta probablemente y correccion de estilo;
 
-VERSION 0.6 Implementación de funciones para mostrar astronautas segun condiciones;
+VERSION 0.5.2 Implementación de funciones para mostrar astronautas segun condiciones;
+
+VERSION 0.6 Implementación de sistema para reiniciar la base de datos
