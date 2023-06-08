@@ -32,3 +32,4 @@ VERSION 0.4.3 Correccion de errores.
 
 VERSION 0.4.4 Correccion de erroes, implementacion de funciones para cambiar nombre, cambios de estilos y organización de codigo
 
+VERSION 0.5 Correcion de errores, implementacion de funciones cambiar apellido, apodo, edad,nacionalidad,horas acumuladas,horas eei, misiones realizadas y creacion de una funcion que muestra el menu de ID
