@@ -2,6 +2,12 @@
 En este repositorio se registrará todo el proceso sobre la escritura de código, del proyecto final de Programación Y Laboratorio de Computación 1.
 
 
+MANEJO DE NOMECLATURA DE VERSIONES
+
+A = ASTRONAUTA    N = NAVE    M = MISION    C = ARCHIVO.C   H = ARCHIVO.h
+
+0. = ASTRONAUTA   1. = NAVE   2. = MISION
+
 VERSION 0.1: Creacion de primeras funciones para modificar los datos de un astronauta;
 
 VERSION 0.1.1: Acomodar y limpiar codigo, solucion de bugs;
