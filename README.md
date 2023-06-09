@@ -49,3 +49,5 @@ VERSION 0.6.3 Implementacion de función de confirmación de ID;
 VERSION 0.6.4 Implementacion de confirmacion de valores de entrada;
 
 VERSION 0.6.5 Validaciones de menus y correciones de estilo.
+
+VERSION 0.6.6 Implementacion de validaciones.
