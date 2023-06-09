@@ -4,9 +4,15 @@ En este repositorio se registrará todo el proceso sobre la escritura de código
 
 MANEJO DE NOMECLATURA DE VERSIONES
 
-A = ASTRONAUTA                         N = NAVE    M = MISION    C = ARCHIVO.C   H = ARCHIVO.h
+A = ASTRONAUTA 
+N = NAVE
+M = MISION   
+C = ARCHIVO.C
+H = ARCHIVO.H
 
-0. = ASTRONAUTA   1. = NAVE   2. = MISION
+0. = ASTRONAUTA
+1. = NAVE   
+2. = MISION
 
 VERSION 0.1: Creacion de primeras funciones para modificar los datos de un astronauta;
 
