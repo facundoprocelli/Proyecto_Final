@@ -245,6 +245,7 @@ void reiniciarSistema()
     {
 
         printf("Ingrese un valor valido\n");
+        fflush(stdin);
         scanf("%i", &reiniciador);
     }
 
@@ -267,7 +268,7 @@ void reiniciarSistema()
         else
         {
             printf("\nAsegurese de escribir CONFIRMAR de forma identica\n");
-            printf("\n|1| Intentar nuevamente\n|2| Cerrar programa con datos guardados \n");
+            printf("\n|1| Intentar nuevamente\n|0| Cerrar programa con datos guardados \n");
             int val;
 
             scanf("%i", &val);
@@ -275,6 +276,7 @@ void reiniciarSistema()
             while (val != 0 &&  val != 1){
 
                 printf("Inserte numero valido: ");
+                fflush(stdin);
                 scanf("%i", &val);
             }
 
