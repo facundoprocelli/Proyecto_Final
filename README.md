@@ -50,4 +50,4 @@ VERSION 0.6.4 Implementacion de confirmacion de valores de entrada;
 
 VERSION 0.6.5 Validaciones de menus y correciones de estilo.
 
-VERSION 0.6.6 Implementacion de validaciones.
+VERSION 0.6.6 Implementacion de validaciones y correccion de errores.
