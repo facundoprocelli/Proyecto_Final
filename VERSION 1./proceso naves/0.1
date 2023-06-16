@@ -4,12 +4,14 @@
 #include <ctype.h>
 
 //-------------------CONSTANTES---------------------------------
-#define maxCaracteres      100
-#define cantNacionalidades 213
-#define cantEspecialidades 5
-#define cantidadOpciones   5
-#define cantTiposNave      3
-#define cantEstados        4
+#define maxCaracteres         100
+#define cantNacionalidades    213
+#define cantEspecialidades    5
+#define cantidadOpcionesAstro 5
+#define cantTiposNave         3
+#define cantEstados           4
+#define cantOpcionesPrincipal 3
+
 
 //---------------------------ARCHIVO----------------------------
 
@@ -41,7 +43,7 @@ typedef struct{
     char tipoNave[maxCaracteres];
     int cantVuelosRealizados;
     int horasAcumuladasVuelo;
-    int estado;
+    char estado;
 }nave;
 
 
@@ -138,8 +140,6 @@ int tamanoArchiAstro();
 int idBuscado();
 
 
-
-
 //--------------------MODIFICAR DATOS DEL ASTRONAUTA------------
 
 void cambiarEstadoAstronauta();
@@ -168,11 +168,118 @@ void cambiarMisionesEspaciales();
 
 void reiniciarSistema();
 
+//-------------------------------------------------------------------------------------------------------------------
+//NAVES
+
+void cargarTipoNave(nave* nav);
+
+void mostrarTipoNave(char tiposNaves[cantTiposNave][maxCaracteres]);
+
+void menuTiposNave(char tiposNave[cantTiposNave][maxCaracteres]);
+
+int validacionTipoNave (int seleccion);
+
+void tiposEstado(char estados[cantEstados][maxCaracteres]);
+
+void mostrarEstados(char estados[cantEstados][maxCaracteres]);
+
+int validacionEstado(int seleccion);
+
+void cargarEstado(nave* nav);
+
+int ultimoINave();
+
+int tamanoArchiNave();
+
+void navesPredeterminadas();
+
+void mostrarOpcionesPrincipales();
+
+
+
+
+
 
 //---------------------------------MAIN--------------------------------------------------------------------------------
 
 int main()
 {
+
+   char operatoro[] = "si";
+   int operar;
+
+   while(strcmp(operatoro, "si") == 0){
+
+
+    printf("Insertar operacion a realizar: ");
+    mostrarOpcionesPrincipales();
+    scanf("%i", &operar);
+
+
+    while ( operar < 1 || operar > cantOpcionesPrincipal ) {
+
+        printf("Ingrese una opcion valida \n");
+        fflush(stdin);
+        scanf("%i", &operar);
+        }
+
+    switch(operar)
+    {
+
+
+case 1:
+    funcionAstronautas();
+    break;
+
+case 2:
+
+    break;
+
+case 3:
+
+    break;
+
+default:
+    printf("Opcion invalida");
+    break;
+
+
+
+    }
+
+    printf("\n\nDesea Seguir operando?\n|'si'| Seguir operando\n|'no'| Dejar de operar\n");
+    fflush(stdin);
+    gets(operatoro);
+
+
+        while(strcmp(operatoro, "si") != 0 && strcmp(operatoro, "no") != 0){
+
+            printf("Ingresa opcion valida\n");
+            fflush(stdin);
+            gets(operatoro);
+
+        }
+
+        if(strcmp(operatoro, "no") == 0){
+
+            saludoFinal(operatoro);
+        }
+   }
+
+return 0;
+}
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+void funcionAstronautas(){
+
     astronauta astro;
 
     int operador;
@@ -186,7 +293,7 @@ int main()
         fflush(stdin);
         scanf("%i", &operador);
 
-        while ( operador < 1 || operador > cantidadOpciones ) {
+        while ( operador < 1 || operador > cantidadOpcionesAstro ) {
 
         printf("Ingrese una opcion valida \n");
         fflush(stdin);
@@ -223,15 +330,10 @@ int main()
             break;
         }
 
-        printf("\n Ingrese 'si', para hacer una nueva operacion\n Ingrese 'no', para terminar el programa \n ");
+        printf("\n Ingrese 'si', para hacer una nueva operacion con astronautas\n Ingrese 'no', para dejar de operar con astronautas\n ");
         fflush(stdin);
         gets(valor);
 
-        if(strcmp(valor, "no") == 0){
-
-        reiniciarSistema();
-        saludoFinal(valor);
-        }
 
         while (strcmp(valor, "si") != 0 && strcmp(valor, "no") != 0 )
         {
@@ -240,9 +342,22 @@ int main()
             gets(valor);
         }
     }
+
 }
 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+void mostrarOpcionesPrincipales(){
+
+printf("\n|1| ASTRONAUTAS");
+printf("\n|2| NAVES");
+printf("\n|3| MISIONES\n");
+
+}
 
 
 
@@ -308,6 +423,8 @@ void reiniciarSistema()
 
     }
 }
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 //-----------OPCIONES DE ACIONES------------
@@ -1521,7 +1638,7 @@ void  cargarEspecialidad(astronauta* astro)
         strcpy(astro->especialidad,especialidades[seleccion - 1]);
 
     }
-    
+
     else if (valido == 0)
     {
 
@@ -1536,7 +1653,7 @@ void  cargarEspecialidad(astronauta* astro)
         }
         strcpy(astro->especialidad,especialidades[seleccion - 1]);
     }
-    
+
 }
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -1959,7 +2076,7 @@ return 0;
 }
 
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------ 
+//------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1971,36 +2088,36 @@ return 0;
 
 void cargarTipoNave(nave* nav)
 {
-    
+
     int seleccion;
-    
+
     char tiposNave[cantTiposNave][maxCaracteres];
     menuTiposNave(tiposNave);
-    
+
     printf("Seleccione el tipo de nave \n");
     mostrarTipoNave(tiposNave);
     scanf("%i", &seleccion);
-    
+
     int valido = validacionTipoNave(seleccion);
-    
+
     if(valido == 1){
-        
-        strcpy(nav->tipoNave, tiposNaves[seleccion - 1]);
-        
+
+        strcpy(nav->tipoNave, tiposNave[seleccion - 1]);
+
     }
     else if(valido == 0){
-        
-        
+
+
         while (valido == 0){
-            
-            
+
+
             printf("Ingrese una opcion correcta");
             fflush(stdin);
             scanf("%i", &seleccion);
-            
+
             valido = validacionTipoNave(seleccion);
         }
-        strcpy(nav->tipoNave, tiposNaves[seleccion - 1]);  
+        strcpy(nav->tipoNave, tiposNave[seleccion - 1]);
     }
 }
 
@@ -2028,9 +2145,9 @@ void menuTiposNave(char tiposNave[cantTiposNave][maxCaracteres])
 {
 
     printf("\n");
-    strcpy(naves[0], "Starship");
-    strcpy(naves[1], "Falcon 9");
-    strcpy(naves[2], "Falcon Heavy");
+    strcpy(tiposNave[0], "Starship");
+    strcpy(tiposNave[1], "Falcon 9");
+    strcpy(tiposNave[2], "Falcon Heavy");
 }
 
 
@@ -2111,41 +2228,41 @@ int validacionEstado(int seleccion)
 
 void cargarEstado(nave* nav)
 {
-    
+
     int valido;
     int seleccion;
-    
+
     char estados[cantEstados][maxCaracteres];
     tiposEstado(estados);
-    
-    
+
+
     printf("Seleccione el estado \n");
-    mostrarEstados(char estados[cantEstados][maxCaracteres]);
+    mostrarEstados(estados);
     scanf("%i", &seleccion);
-    
+
     valido = validacionEstado(seleccion);
-    
+
     if (valido == 0){
-        
-        
+
+
         strcpy(nav->estado, estados[seleccion - 1]);
-    
+
     }
     else if(valido == 0){
-        
+
         while(valido == 0){
-            
-            
+
+
             printf("Igrese una opcion valida\n");
             fflush(stdin);
             scanf("%i", &seleccion);
-            
+
             valido = validacionEstado(seleccion);
         }
-        
+
         strcpy(nav->estado, estados[seleccion - 1]);
     }
-    
+
 }
 
 int ultimoINave()
@@ -2153,7 +2270,7 @@ int ultimoINave()
     astronauta aux;
 
     FILE *archi = fopen(archiNave,"rb");
-    
+
     if(archi == NULL || tamanoArchiNave() == 0)
     {
         fclose(archi);
@@ -2177,7 +2294,7 @@ int tamanoArchiNave()
 
     fseek(fich, 0, SEEK_END);
     fclose(fich);
-    
+
     return ftell(fich)/sizeof(nave);
 }
 
@@ -2197,24 +2314,28 @@ nave nav3;
 
 
 nav1.ID = 1001;
-nav1.tipoNave = "Starship";
-nav1.estado   = "Mantenimiento";
+strcpy(nav1.tipoNave, "Starship");
+strcpy(nav1.estado, "Mantenimiento");
 nav1.cantVuelosRealizados = 7;
 nav1.horasAcumuladasVuelo = 106;
 
 fwrite(&nav1, sizeof(nave), 1, archi);
 
+
+//--.-.-.-.--.-.-.-.-.-.--.-.-.-.-.-.-.-.
 nav2.ID = 1002;
-nav2.tipoNave = "Falcon 9";
-nav2.estado   = "Lista para su uso";
+strcpy(nav2.tipoNave, "Falcon 9");
+strcpy(nav2.estado, "de Baja");
 nav2.cantVuelosRealizados = 2;
 nav2.horasAcumuladasVuelo = 25;
 
 fwrite(&nav2, sizeof(nave), 1, archi);
 
+
+//--.-.-.-.--.-.-.-.-.-.--.-.-.-.-.-.-.-.
 nav3.ID = 1003;
-nav3.tipoNave = "Falcon Heavy";
-nav3.estado   = "Mision";
+strcpy(nav3.tipoNave, "Falcon Heavy");
+strcpy(nav3.estado, "Mision");
 nav3.cantVuelosRealizados = 10;
 nav3.horasAcumuladasVuelo = 181;
 
@@ -2222,4 +2343,20 @@ fwrite(&nav3, sizeof(nave), 1, archi);
 
 
 fclose(archi);
+}
+
+
+
+void cargarNuevaNave(nave* nav)
+{
+
+nav->ID = ultimoINave();
+cargarTipoNave(nav);
+
+
+
+
+
+
+
 }
