@@ -69,3 +69,18 @@ VERSION 0.6.5 Validaciones de menus y correciones de estilo;
 VERSION 0.6.6 Implementacion de validaciones y correccion de errores;
 
 VERSION 0.6.7 Implementacion de chiche;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VERSION 2.1 Creación de estructura de Misiones y funciones varias
