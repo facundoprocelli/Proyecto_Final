@@ -1,0 +1,276 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#define maxTripulantes 3
+#define detalleDeMision 100
+#define maxLetrasString 50
+#define maxEstado 5
+#define maxCargamentos 6
+#define maxDestinos 6
+
+#define archiMisoin "archivoMision.bin"
+
+typedef struct{
+
+int ID;
+int iDNave;
+char estado[maxLetrasString];
+char cargamento[maxLetrasString];
+char destino[maxLetrasString];
+int tripulantes[maxTripulantes];
+char detalleMision[detalleDeMision];
+
+} stMision;
+
+//----------------CARGAR COSAS-----------------
+
+void cargarMisiones();
+void cargarEstadoMision(stMision * misio);
+void cargarCargamentoMision(stMision * misio);
+void cargarDestinoMision(stMision * misio);
+
+//-------------------MENUES--------------------------
+void menuEstados(char menuEstadoMision[][maxLetrasString]);
+void menuCargamento(char menuCargamentoMision[][maxLetrasString]);
+void menuCargamento(char menuDestinoMision[][maxLetrasString]);
+
+//------------------MOSTRAR COSAS-------------------
+void mostrarMenuEstado(char menuEstadoMision[][maxLetrasString]);
+void mostrarMenuCargamento(char menuCargamentoMision[][maxLetrasString]);
+void mostrarDestinoCargamento(char menuDestinoMision[][maxLetrasString]);
+
+
+//----------------VALIDACIONES-----------------------
+int validacionDestino(int i);
+
+
+int main()
+{
+    cargarMisiones();
+    return 0;
+}
+
+
+void cargarMisiones(){
+
+stMision misio;
+
+FILE * archi = fopen(archiMisoin, "ab");
+
+    //cargarIdMision(&misio);
+    //cargarIdNaveMision(&misio);
+    //cargarEstadoMision(&misio);
+   // cargarCargamentoMision(&misio);
+    cargarDestinoMision(&misio);
+   // cargarTripulantesMision(&misio);
+    //cargarDetalleMision(&misio);
+
+
+
+
+fwrite(&misio, sizeof(stMision), 1, archi);
+
+   fclose(archi);
+}
+
+/*
+void cargarIdMision(stMision * misio){
+
+
+
+}
+
+void cargarIdNaveMision(stMision * misio){
+
+FILE * archi = fopen(archiNaves, "rb");
+
+
+
+fclose(archi);
+}
+*/
+
+void cargarEstadoMision(stMision * misio){
+
+char menuEstadoMision[maxEstado][maxLetrasString];
+menuEstados(menuEstadoMision);
+
+int seleccion = 0;
+
+
+printf("Seleccione el estado actual de la mision");
+mostrarMenuEstado(menuEstadoMision);
+fflush(stdin);
+scanf("%i", &seleccion);
+
+
+strcpy(misio->estado, menuEstadoMision[seleccion]);
+
+
+
+}
+
+
+void menuEstados(char menuEstadoMision[][maxLetrasString]){
+
+    strcpy(menuEstadoMision[0], "Lista");
+    strcpy(menuEstadoMision[1], "En vuelo");
+    strcpy(menuEstadoMision[2], "Retornada");
+    strcpy(menuEstadoMision[3], "Cancelada");
+    strcpy(menuEstadoMision[4], "Fallida");
+
+}
+
+void mostrarMenuEstado(char menuEstadoMision[][maxLetrasString]){
+
+
+int  i= 0;
+
+for (i = 0; i< maxEstado; i++){
+
+    printf("\n|%i| %s", i, menuEstadoMision[i]);
+}
+printf("\n");
+
+}
+
+
+
+void cargarCargamentoMision(stMision * misio){
+
+char menuCargamentoMision[maxLetrasString][maxCargamentos];
+menuCargamento(menuCargamentoMision);
+
+int seleccion = 0;
+
+
+printf("Seleccione el cargamento de la mision");
+mostrarMenuCargamento(menuCargamentoMision);
+fflush(stdin);
+scanf("%i", &seleccion);
+
+
+strcpy(misio->cargamento, menuCargamentoMision[seleccion]);
+
+
+}
+
+
+void menuCargamento(char menuCargamentoMision[][maxLetrasString]){
+
+    strcpy(menuCargamentoMision[0], "Satelite");
+    strcpy(menuCargamentoMision[1], "Recursos");
+    strcpy(menuCargamentoMision[2], "Rober");
+    strcpy(menuCargamentoMision[3], "Colectivo");
+    strcpy(menuCargamentoMision[4], "StarLink");
+    strcpy(menuCargamentoMision[5], "Astronautas");
+
+
+}
+
+void mostrarMenuCargamento(char menuCargamentoMision[][maxLetrasString]){
+
+int  i= 0;
+
+for (i = 0; i< maxCargamentos; i++){
+
+    printf("\n|%i| %s", i, menuCargamentoMision[i]);
+}
+printf("\n");
+
+}
+
+
+
+
+void cargarDestinoMision(stMision * misio){
+
+char menuDestinoMision[maxLetrasString][maxDestinos];
+menuDestino(menuDestinoMision);
+
+int seleccion = 0;
+
+
+printf("Seleccione el destino de la mision");
+mostrarMenuDestino(menuDestinoMision);
+
+
+fflush(stdin);
+scanf("%i", &seleccion);
+printf("%i", seleccion);
+printf("%s",menuDestinoMision[seleccion]);
+
+int valido = validacionDestino(seleccion);
+
+    if(valido == 1)
+    {
+
+        strcpy(misio->destino, menuDestinoMision[seleccion]);
+
+    }
+    else if (valido == 0)
+    {
+
+        while (valido == 0)
+        {
+
+            printf("Inserta un numero asociado a una especialidad\nESPECIALIDAD: ");
+            fflush(stdin);
+            scanf("%i", &seleccion);
+
+            valido = validacionDestino(seleccion);
+        }
+    }
+
+
+strcpy(misio->destino, menuDestinoMision[seleccion]);
+
+
+
+}
+
+int validacionDestino (int seleccion)
+{
+
+    int valido = 0;
+
+    if(seleccion <= maxDestinos && seleccion >= 0)
+    {
+        valido = 1;
+    }
+    else
+    {
+    valido = 0;
+    }
+    return valido;
+}
+
+
+void menuDestino(char menuDestinoMision[][maxLetrasString]){
+
+    strcpy(menuDestinoMision[0], "Estacion Espacial Internacional");
+    strcpy(menuDestinoMision[1], "Estratosfera");
+    strcpy(menuDestinoMision[2], "Saturno");
+    strcpy(menuDestinoMision[3], "Luna");
+    strcpy(menuDestinoMision[4], "Marte");
+    strcpy(menuDestinoMision[5], "El Inifinito y mas alla");
+
+
+}
+
+void mostrarMenuDestino(char menuDestinoMision[][maxLetrasString]){
+
+int  i= 0;
+
+for (i = 0; i< maxDestinos; i++){
+
+    printf("\n|%i| %s", i, menuDestinoMision[i]);
+}
+printf("\n");
+
+}
+
+
+
