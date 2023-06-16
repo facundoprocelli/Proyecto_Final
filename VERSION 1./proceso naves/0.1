@@ -39,10 +39,10 @@ typedef struct
 //NAVE
 typedef struct{
 
-    int ID;
+    int  ID;
     char tipoNave[maxCaracteres];
-    int cantVuelosRealizados;
-    int horasAcumuladasVuelo;
+    int  cantVuelosRealizados;
+    int  horasAcumuladasVuelo;
     char estado;
 }nave;
 
@@ -195,6 +195,10 @@ void navesPredeterminadas();
 
 void mostrarOpcionesPrincipales();
 
+void mostrarDatosNave(nave nav);
+
+void mostrarArchivoNaves();
+
 
 
 
@@ -232,7 +236,6 @@ case 1:
     break;
 
 case 2:
-
     break;
 
 case 3:
@@ -2350,13 +2353,54 @@ fclose(archi);
 void cargarNuevaNave(nave* nav)
 {
 
+FILE* archi = fopen(archiNave, "ab");
+
 nav->ID = ultimoINave();
 cargarTipoNave(nav);
+cargarEstado(nav);
+nav->cantVuelosRealizados  = 0;
+nav->horasAcumuladasVueloc = 0;
+
+
+fwrite(nav, sizeof(nave),1, archi);
+
+
+fclose(archi);
+}
+
+
+void mostrarArchivoNaves()
+{
+
+    FILE *archi = fopen(archiNave, "rb");
+
+    nave nav;
+
+    while((fread(&nav, sizeof(nave), 1, arhi) > 0)
+    {
+
+        mostrarDatosNave(nav);
+
+    }
 
 
 
+    fclose(archi);
+}
 
 
+void mostrarDatosNave(nave nav)
+{
 
+
+printf("\n\nID: %i"                  , nav.ID);
+printf("\nTIPO DE NAVE: %s"          , nav.tipoNave);
+printf("\nESTADO: %s"                , nav.estado;
+printf("\nHORAS ACUMULADAS : %i"     , nav.horasAcumuladasVuelo);
+printf("\nVUELOS REALIZADOS: %i\n\n" , nav.cantVuelosRealizados);
 
 }
+
+
+
+9
