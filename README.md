@@ -74,7 +74,7 @@ VERSION 1.1.0 Implementacion de primeras funciones de naves y nuevos menues para
 
 VERSION 1.1.1 Implementacion parcial de nuevas verificaciones mas efectivas para los menues;
 
-
+VERSION 1.1.2 Sigue La implementacion de la verificación en las funciones necesarias
 
 
 
