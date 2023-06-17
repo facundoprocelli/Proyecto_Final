@@ -70,9 +70,9 @@ VERSION 0.6.6 Implementacion de validaciones y correccion de errores;
 
 VERSION 0.6.7 Implementacion de chiche;
 
+VERSION 1.1.0 Implementacion de primeras funciones de naves y nuevos menues para navegar por el programa;
 
-
-
+VERSION 1.1.1 Implementacion parcial de nuevas verificaciones mas efectivas para los menues;
 
 
 
