@@ -88,17 +88,21 @@ VERSION 1.1.7
 
 VERSION 1.1.8
 
-VERSION 1.1.9 Correcion de errores
+VERSION 1.1.9 Correcion de errores;
 
-VERISON 1.2.0 Correccion de errores
+VERISON 1.2.0 Correccion de errores;
 
-VERSION 1.2.1 Correccion de errores
+VERSION 1.2.1 Correccion de errores;
 
-VERSION 1.2.2 Immplementacion de funciones de consulta
+VERSION 1.2.2 Immplementacion de funciones de consulta;
 
-VERISON 1.2.3 Continua la implementacion de consultas
+VERISON 1.2.3 Continua la implementacion de consultas;
 
-VERSION 1.3.0 Finalizacion de la implementacion de consultas y astronauta
+VERSION 1.3.0 Finalizacion de la implementacion de consultas y astronauta;
+
+VERSION 1.3.1 Correccion de errores;
+
+VERSION 1.3.2 Implementacion de funciones de mostrado y modificacion de naves
 
 
 
