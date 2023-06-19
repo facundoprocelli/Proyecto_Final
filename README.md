@@ -76,7 +76,21 @@ VERSION 1.1.1 Implementacion parcial de nuevas verificaciones mas efectivas para
 
 VERSION 1.1.2 Sigue La implementacion de la verificación en las funciones necesarias
 
+VERSION 1.1.3
 
+VERSION 1.1.4
+
+VERSION 1.1.5
+
+VERSION 1.1.6
+
+VERSION 1.1.7
+
+VERSION 1.1.8
+
+VERSION 1.1.9 Correcion de errores
+
+VERISON 1.1.10 Correccion de errores
 
 
 
