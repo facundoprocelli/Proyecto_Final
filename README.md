@@ -90,7 +90,9 @@ VERSION 1.1.8
 
 VERSION 1.1.9 Correcion de errores
 
-VERISON 1.1.10 Correccion de errores
+VERISON 1.2.0 Correccion de errores
+
+VERSION 1.2.1 Correccion de errores
 
 
 
