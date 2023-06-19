@@ -96,6 +96,8 @@ VERSION 1.2.1 Correccion de errores
 
 VERSION 1.2.2 Immplementacion de funciones de consulta
 
+VERISON 1.2.3 Continua la implementacion de consultas
+
 
 
 
