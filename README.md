@@ -98,6 +98,8 @@ VERSION 1.2.2 Immplementacion de funciones de consulta
 
 VERISON 1.2.3 Continua la implementacion de consultas
 
+VERSION 1.3.0 Finalizacion de la implementacion de consultas y astronauta
+
 
 
 
