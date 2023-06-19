@@ -2148,7 +2148,7 @@ void cargarTipoNave(nave* nav)
 
     int operador = -1;
     char strOpcion[maxCaracteres];
-
+    //int seleccion;
 
     char tiposNave[cantTiposNave][maxCaracteres];
     menuTiposNave(tiposNave);
@@ -2159,8 +2159,8 @@ void cargarTipoNave(nave* nav)
     fflush(stdin);
     gets(strOpcion);
 
-
-
+    //scanf("%i", &seleccion);
+    //strcpy(nav->tipoNave, tiposNave[seleccion - 1]);   //SI EJECUTO LAS LINEAS DE CODIGO ESAS Y COMENTO LA VERIFICACION ESA, NO SOLO SE CARGA BIEN EL TIPO DE NAVE SINO QUE TAMBIEN EL TIPO DE ESTADO NO SE POR QUE
 
     while(operador < 0)
     {
