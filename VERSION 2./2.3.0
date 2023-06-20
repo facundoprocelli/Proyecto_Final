@@ -27,6 +27,7 @@
 #define cantCargamentos 6
 #define cantDestinos 6
 #define maxTripulates 3
+#define maxCantidadModificacionesMision 6
 
 
 //---------------------------ARCHIVOS----------------------------
@@ -5673,12 +5674,13 @@ void menuDestino(char menuDestinoMision[][maxCaracteres])
 void mostrarMenuDestino(char menuDestinoMision[][maxCaracteres])
 {
 
-    int  i= 0;
-
-    for (i = 0; i< cantDestinos; i++)
+      int  i;
+    int j = 1;
+    for (i = 0; i < cantDestinos; i++)
     {
 
-        printf("\n|%i| %s", i, menuDestinoMision[i]);
+        printf("\n|%i| %s", j, menuDestinoMision[i]);
+        j++;
     }
     printf("\n");
 
@@ -5719,3 +5721,261 @@ void mostrarArchivoMisiones()
 
     fclose(archi);
 }
+
+
+//--------------------BUSCAR POR ID----------------------
+
+void buscarMisionPorId()
+{
+    menuIDMision();
+    int id = idBuscadoMision();
+
+
+    FILE* archi = fopen(archiMision, "rb");
+
+   stMision misio;
+
+    while(fread(&misio, sizeof(stMision), 1, archi) > 0)
+    {
+        if(misio.ID== id)
+        {
+
+            mostrarDatosMision(misio);
+            break;
+        }
+    }
+    fclose(archi);
+}
+
+
+int idBuscadoMision()
+{
+
+    int valido = 0;
+    int operador = -1;
+    char strOpcion[maxCaracteres];
+    int maxIdMision =  ultimoIdMision() -1;
+
+    valido = validacionIDNave(operador);
+
+
+    while (valido == 0 && (operador < minIdMision || operador > maxIdMision))
+    {
+
+        printf("Inserte el ID de la nave: ");
+        fflush(stdin);
+        gets(strOpcion);
+
+        operador = validacionNumeros(strOpcion,minIdMision,maxIdMision);
+
+        valido = validacionIDAstro(operador);
+
+        if (operador >= minIdMision && operador <= maxIdMision && valido == 1)
+        {
+
+            return operador;
+
+        }
+    }
+
+}
+
+
+void menuIDMision()
+{
+
+    int operador = -1;
+    char strOpcion[maxCaracteres];
+
+    printf("\n|1|  Para ver menu de id \n|2|  Para seguir\n");
+    fflush(stdin);
+    gets(strOpcion);
+
+    while(operador < 0)
+    {
+        operador = validacionNumeros(strOpcion,minimaCantidadOpciones,maxCantidadMenu);
+
+        if (operador > minimaCantidadOpciones && operador < maxCantidadMenu)
+        {
+            break;
+        }
+    }
+
+
+    if (operador == 1)
+    {
+        printf("\n");
+
+        mostrarListaIDMision();
+
+        printf("\n");
+    }
+
+    else if (operador == 2)
+    {
+        return;
+
+    }
+
+
+}
+
+
+void mostrarListaIDMision()
+{
+    FILE* archi = fopen(archiMision, "rb");
+    stMision misio;
+
+    while (fread(&misio, sizeof(stMision), 1, archi) > 0)
+    {
+
+        printf("ID: %i\n", misio.ID);
+    }
+
+    fclose(archi);
+}
+
+
+//-------------------------------CONSULTAS MISIONES------------------------------------
+
+
+
+
+
+void menuConsultasMision()
+{
+
+
+    printf("\n|1| = Buscar Mision por ID \n");
+    printf(  "|2| = Buscar Mision por estado\n");
+    printf(  "|3| = Buscar Mision por cargamento\n");
+    printf(  "|4| = Buscar Mision por destino\n");
+    printf(  "|5| = Buscar Mision por tipo de nave\n");
+
+}
+
+
+void consultarMisiones()
+{
+
+
+    int operador = -1;
+    char strOpcion[maxCaracteres];
+
+
+    printf("Seleccione el aspecto que desea consultar de la Mision: ");
+    menuConsultasMision();
+
+    gets(strOpcion);
+
+    while(operador < 0)
+    {
+        operador = validacionNumeros(strOpcion,minimaCantidadOpciones,maxCantidadModificacionesMision);
+
+        if (operador > minimaCantidadOpciones && operador < maxCantidadModificacionesMision)
+        {
+            break;
+        }
+    }
+
+
+
+    switch(operador)
+    {
+
+    case 1:
+        buscarMisionPorId();
+        break;
+
+    case 2:
+       printf("FALTA HACERLO");
+        break;
+
+    case 3:
+      buscarMisionPorCargamento();
+        break;
+
+    case 4:
+        buscarMisionPorDestino();
+        break;
+
+    case 5:
+       printf("FALTA HACERLO");
+        break;
+
+
+    default:
+        printf("El numero ingresado no corresponde con las opciones");
+        break;
+    }
+}
+
+
+
+void buscarMisionPorCargamento()
+{
+
+    FILE * archi = fopen(archiMision, "rb");
+
+    stMision misio;
+    stMision aux;
+    int veces = 0;
+
+    cargarCargamentoMision(&aux);
+
+    while(fread(&misio, sizeof(stMision), 1, archi) > 0)
+    {
+
+
+
+        if (strcmp(misio.cargamento, aux.cargamento) == 0)
+        {
+
+
+            mostrarDatosMision(misio);
+            veces++;
+        }
+    }
+    if (veces == 0)
+    {
+        printf("\nNo hay ninguna mision que cumpla con ese requisito\n");
+    }
+
+
+    fclose(archi);
+
+}
+
+void buscarMisionPorDestino()
+{
+
+    FILE * archi = fopen(archiMision, "rb");
+
+    stMision misio;
+    stMision aux;
+    int veces = 0;
+
+    cargarDestinoMision(&aux);
+
+    while(fread(&misio, sizeof(stMision), 1, archi) > 0)
+    {
+
+
+
+        if (strcmp(misio.destino, aux.destino) == 0)
+        {
+
+            mostrarDatosMision(misio);
+            veces++;
+        }
+    }
+    if (veces == 0)
+    {
+        printf("\nNo hay ninguna mision que cumpla con ese requisito\n");
+    }
+
+
+    fclose(archi);
+
+}
+
