@@ -118,6 +118,8 @@ VERSION 2.2.2 Correcion de errores, implementacion de funcion id;
 
 VERSION 2.2.3 Correcion de errores;
 
+VERSION 2.2.4 Solucion del problema de cambio de estado a la hora de elegir misiones;
+
 
 
 
