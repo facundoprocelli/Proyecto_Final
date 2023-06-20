@@ -104,7 +104,7 @@ VERSION 1.3.1 Correccion de errores;
 
 VERSION 1.3.2 Implementacion de funciones de mostrado y modificacion de naves
 
-
+VERSION 1.3.3 Correcciones de errores y ortografia.
 
 
 
