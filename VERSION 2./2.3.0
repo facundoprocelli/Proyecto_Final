@@ -21,6 +21,7 @@
 #define maxCantidadModificacionesNave 4
 #define minIdAstro 101
 #define minIdNave 1001
+#define minIdMision 1
 #define cantidadTipoBusquedaEdad 3
 #define cantEstadosNave 5
 #define detalleDeMision 200
@@ -94,7 +95,6 @@ void cargarNombre(astronauta* astro);
 void cargarAstronautaNuevo(astronauta* astro);
 
 void cargarApellido(astronauta* astro);
-
 void cargarApodo(astronauta* astro);
 
 void cargarNacionalidad(astronauta* astro);
@@ -5446,15 +5446,15 @@ fclose(archi);
 
 
 
-void mostrarDatosMision(stMision * misio)
+void mostrarDatosMision(stMision  misio)
 {
-    printf("\nID------------------------------- %i", misio->ID);
-    printf("\nID NAVE-------------------------- %i", misio->iDNave);
-    printf("\nESTADO--------------------------- %s", misio->estado);
-    printf("\nDESTINO-------------------------- %s", misio->destino);
-    printf("\nTRIPULACION------------ %i - %i - %i",misio->tripulacion[0], misio->tripulacion[1],misio->tripulacion[2]);
-    printf("\nCARGAMENTO----------------------- %s", misio->cargamento);
-    printf("\nDETALLE-------------------------- %s", misio->detalleMision);
+    printf("\nID------------------------------- %i", misio.ID);
+    printf("\nID NAVE-------------------------- %i", misio.iDNave);
+    printf("\nESTADO--------------------------- %s", misio.estado);
+    printf("\nDESTINO-------------------------- %s", misio.destino);
+    printf("\nTRIPULACION------------ %i - %i - %i", misio.tripulacion.trip1, misio.tripulacion.trip2, misio.tripulacion.trip3);
+    printf("\nCARGAMENTO----------------------- %s", misio.cargamento);
+    printf("\nDETALLE-------------------------- %s", misio.detalleMision);
 
 }
 
