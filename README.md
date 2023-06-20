@@ -111,4 +111,8 @@ VERSION 1.4 Finalizacion de Nave;
 VERSION 2.1 Creación de estructura de Misiones y funciones varias
 
 VERSION 2.2.0 Implementacion de funciones de creacion de nuevas misiones 
-NOTA: Hay que hacer que cuando elija a una nave,le cambie el estado de lista a en mision
+
+VERSION 2.2.1 Correcion de errores e implemntacion de funciones de msotrar;
+
+VERSION 2.2.2 Correcion de errores, implementacion de funcion id;
+
