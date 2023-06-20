@@ -106,7 +106,9 @@ VERSION 1.3.2 Implementacion de funciones de mostrado y modificacion de naves
 
 VERSION 1.3.3 Correcciones de errores y ortografia.
 
-
-
+VERSION 1.4 Finalizacion de Nave;
 
 VERSION 2.1 Creación de estructura de Misiones y funciones varias
+
+VERSION 2.2.0 Implementacion de funciones de creacion de nuevas misiones 
+NOTA: Hay que hacer que cuando elija a una nave,le cambie el estado de lista a en mision
