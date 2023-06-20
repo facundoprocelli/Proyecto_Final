@@ -3819,7 +3819,7 @@ void mostrarIDNave()
 {
 
     int ID = ultimoIdNave();
-    printf("ID: %i", ID );
+    printf("\nID: %i", ID );
 
 }
 
@@ -4271,7 +4271,7 @@ void cargarHorasVueloAcumuladasNave(nave* nav)
     {
         operador = validacionNumeros(strOpcion,minimaCantidadOpciones,maxCantidadHoras);
 
-        if (operador > minimaCantidadOpciones && operador < maxCantidadHoras)
+        if (operador >= minimaCantidadOpciones && operador < maxCantidadHoras)
         {
             nav->horasAcumuladasVuelo = operador;
             break;
