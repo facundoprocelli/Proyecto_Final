@@ -27,7 +27,7 @@
 #define detalleDeMision 200
 #define cantCargamentos 6
 #define cantDestinos 6
-#define maxTripulates 3
+#define maxTripulantes 3
 #define maxCantidadModificacionesMision 6
 
 
@@ -69,8 +69,6 @@ typedef struct
 
 //MISIONES
 
-
-
 typedef struct
 {
 
@@ -79,7 +77,7 @@ typedef struct
     char estado[maxCaracteres];
     char cargamento[maxCaracteres];
     char destino[maxCaracteres];
-    int tripulacion[maxTripulates];
+    int tripulacion[maxTripulantes];
     char detalleMision[detalleDeMision];
 
 } stMision;
@@ -95,6 +93,7 @@ void cargarNombre(astronauta* astro);
 void cargarAstronautaNuevo(astronauta* astro);
 
 void cargarApellido(astronauta* astro);
+
 void cargarApodo(astronauta* astro);
 
 void cargarNacionalidad(astronauta* astro);
@@ -336,14 +335,18 @@ void cambiarVuelosHechosNave();
 
 void menuOpcionesFuncionesNave();
 
+void buscarMisionPorId();
+
+int idBuscadoMision();
+
 //---------------------------------MAIN--------------------------------------------------------------------------------
 
 int main()
 {
 
-    navesPredeterminadas();
-    astronautasPredeterminados();
-    misionPredeterminada();
+    //navesPredeterminadas();
+    //astronautasPredeterminados();
+    //misionPredeterminada();
 
 
     char valor[] = "si";
@@ -5179,7 +5182,7 @@ void funcionMisiones()
             break;
 
         case 2:
-            //buscarMisionPorId();
+            buscarMisionPorId();
             break;
 
         case 3:
@@ -5194,8 +5197,7 @@ void funcionMisiones()
             mostrarArchivoMisiones();
             break;
         case 6:
-            // consultarMisiones();
-
+            consultarMisiones();
             break;
         }
 
@@ -5225,12 +5227,11 @@ void cargarNuevaMision(stMision * misio)
 
     misio->ID = ultimoIdMision();
     printf("%i", misio->ID);
-   int idNave = cargarIdNaveMision(misio);
-   if (idNave == 0){return 0;}
+    cargarIdNaveMision(misio);
     //cargarEstadoMision(misio);
     cargarCargamentoMision(misio);
     cargarDestinoMision(misio);
-    cargarTripulantesMision(misio);
+    // cargarTripulantesMision(misio);
     cargarDetalleMision(misio);
 
     mostrarDatosMision(misio);
@@ -5245,128 +5246,7 @@ void cargarNuevaMision(stMision * misio)
 
 
 
-void cargarTripulantesMision(stMision * misio){
-
-
-int tripulantes[100];
-int i = 0 ;
-
-
-
-int validos = mostrarListaTripulantesActivos(tripulantes);
-
-mostrarArray(tripulantes, validos);
-
-if (validos < 3){
-    printf("No hay suficiente tripulacion como para hacer una mision");
-    return 0;
-}
-
-
-while (i <= 2){
-
-        char strOpcion[maxCaracteres];
-        int operador;
-        printf("ID: ");
-        fflush(stdin);
-        gets(strOpcion);
-
-        int maxIdAstronauta =  ultimoIdAstro() -1;
-
-        operador = validacionNumeros(strOpcion, minIdAstro,maxIdAstronauta);
-
-        if (operador >= minIdAstro && operador <= maxIdAstronauta)
-        {
-           int  valido = validarIdAstronautaMision(tripulantes, operador, validos);
-           printf("\n\n%i \n\n",operador);
-
-            if (valido == 1)
-            {
-                misio->tripulacion[i] = operador;
-                printf("\n\n%i \n\n",misio->tripulacion[i]);
-            }
-            else
-            {
-                printf("ID no disponible\n");
-            }
-        }
-        i++;
-    }
-
-}
-
-void mostrarArray(int array[], int validos){
-
-int i = 0;
-printf("\n\n");
-for (i = 0 ; i < validos;i++){
-
-    printf("%i \n", array[i]);
-}
-
-
-
-}
-
-int validarIdAstronautaMision(int tripulates[], int operador, int validos){
-
-int i;
-
-for(i = 0; i< validos; i++){
-
-    if (operador == tripulates[i]){
-        return 1;
-    }
-}
-
-return 0;
-}
-
-
-
-
-
-
-
-
-
-int mostrarListaTripulantesActivos(int tripulantes[]){
-
-FILE * archi = fopen(archiAstronauta, "rb");
-astronauta astro;
-int i = 0;
-
-while(fread(&astro, sizeof(astronauta), 1, archi) > 0){
-
-
-    if (astro.estado ==  1){
-
-        printf("- %i\n", astro.ID);
-        tripulantes[i] = astro.ID;
-        i++;
-    }
-}
-fclose(archi);
-return i;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-int cargarIdNaveMision(stMision* misio)
+void cargarIdNaveMision(stMision* misio)
 {
     int valido = 0;
     int operador = -1;
@@ -5378,10 +5258,6 @@ int cargarIdNaveMision(stMision* misio)
 
     printf("\nIngrese el ID de la nave\n");
     validos = mostrarNavesDisponibles(idDisponibles);
-
-    if (validos == 0){
-        return 0;
-    }
 
 
 
@@ -5452,7 +5328,7 @@ void mostrarDatosMision(stMision  misio)
     printf("\nID NAVE-------------------------- %i", misio.iDNave);
     printf("\nESTADO--------------------------- %s", misio.estado);
     printf("\nDESTINO-------------------------- %s", misio.destino);
-    printf("\nTRIPULACION------------ %i - %i - %i", misio.tripulacion.trip1, misio.tripulacion.trip2, misio.tripulacion.trip3);
+    printf("\nTRIPULACION------------ %i - %i - %i", misio.tripulacion[0] , misio.tripulacion[1], misio.tripulacion[2]);
     printf("\nCARGAMENTO----------------------- %s", misio.cargamento);
     printf("\nDETALLE-------------------------- %s", misio.detalleMision);
 
@@ -5539,12 +5415,14 @@ int mostrarNavesDisponibles(int idDisponibles[])
     if (veces == 0)
     {
         printf("\nNo hay naves disponibles en este momento");
-
     }
 
     fclose(archi);
 
-
+     if (i == 0){
+        printf("Acutalmente no hay naves listas para salir a mision");
+        return 0;
+    }
     return i;
 }
 
@@ -5674,7 +5552,7 @@ void menuDestino(char menuDestinoMision[][maxCaracteres])
 void mostrarMenuDestino(char menuDestinoMision[][maxCaracteres])
 {
 
-      int  i;
+    int  i;
     int j = 1;
     for (i = 0; i < cantDestinos; i++)
     {
@@ -5704,8 +5582,6 @@ void cargarDetalleMision(stMision * misio)
 void mostrarArchivoMisiones()
 {
 
-
-
     stMision misio;
     FILE*archi = fopen(archiMision, "rb");
 
@@ -5713,7 +5589,7 @@ void mostrarArchivoMisiones()
     {
 
         printf("\n");
-        mostrarDatosMision(&misio);
+        mostrarDatosMision(misio);
     }
 
 
@@ -5723,7 +5599,8 @@ void mostrarArchivoMisiones()
 }
 
 
-//--------------------BUSCAR POR ID----------------------
+
+//------------------------BUSCAR POR ID MISION--------------------------------------------------
 
 void buscarMisionPorId()
 {
@@ -5801,7 +5678,6 @@ void menuIDMision()
         }
     }
 
-
     if (operador == 1)
     {
         printf("\n");
@@ -5816,8 +5692,6 @@ void menuIDMision()
         return;
 
     }
-
-
 }
 
 
@@ -5965,6 +5839,7 @@ void buscarMisionPorDestino()
         if (strcmp(misio.destino, aux.destino) == 0)
         {
 
+
             mostrarDatosMision(misio);
             veces++;
         }
@@ -5974,8 +5849,12 @@ void buscarMisionPorDestino()
         printf("\nNo hay ninguna mision que cumpla con ese requisito\n");
     }
 
-
     fclose(archi);
-
 }
+
+
+
+
+
+
 
