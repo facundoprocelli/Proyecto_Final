@@ -116,3 +116,10 @@ VERSION 2.2.1 Correcion de errores e implemntacion de funciones de msotrar;
 
 VERSION 2.2.2 Correcion de errores, implementacion de funcion id;
 
+VERSION 2.2.3 Correcion de errores;
+
+
+
+
+Nota: Hay que hacer que la funcion de modificar estado cuando la nave ya se haya mandado a mision funcione correctamente.
+
