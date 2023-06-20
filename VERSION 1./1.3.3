@@ -3435,7 +3435,7 @@ void cargarMisionesEspaciales(astronauta *astro)
     {
         operador = validacionNumeros(strOpcion,minimaCantidadOpciones,maxcantidadViajes);
 
-        if (operador > minimaCantidadOpciones && operador < maxcantidadViajes)
+        if (operador >= minimaCantidadOpciones && operador < maxcantidadViajes)
         {
             astro->misionesEspacialesRealizadas = operador;
             break;
