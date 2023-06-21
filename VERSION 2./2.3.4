@@ -6261,3 +6261,72 @@ void buscarMisionPorDestino()
     fclose(archi);
 
 }
+
+
+
+int buscarMisionPorTipoAux(int iguales[])
+{
+
+    nave nav;
+    nave aux;
+
+    int veces = 0;
+
+
+    cargarTipoNave(&aux);
+
+    FILE * archi = fopen(archiNave, "rb");
+
+    while (fread(&nav, sizeof(nave), 1, archi) >0)
+    {
+
+        if (strcmp(nav.tipoNave, aux.tipoNave) == 0)
+        {
+
+            iguales[veces] = nav.ID;
+            veces++;
+        }
+    }
+    if (veces == 0)
+    {
+        printf("\nNo hay ninguna nave que cumpla con ese requisito\n");
+    }
+
+    fclose(archi);
+
+    return veces;
+}
+
+
+void buscarMisionPorTipoNave()
+{
+    int iguales[maxCantidadHoras];
+    int valis = buscarMisionPorTipoAux(iguales);
+    int i = 0;
+    stMision misio;
+    int oper = 0;
+
+    FILE * archi = fopen(archiMision, "rb");
+
+
+
+    while (fread(&misio, sizeof(stMision), 1, archi) > 0)
+    {
+
+        while(i < valis){
+
+        if(iguales[i] == misio.iDNave){
+
+            mostrarDatosMision(misio);
+            oper++;
+        }
+        i++;
+        }
+        i = 0;
+    }
+    if(oper == 0){
+        printf("No hay misiones asociadas a naves de ese tipo.");
+    }
+
+    fclose(archi);
+}
