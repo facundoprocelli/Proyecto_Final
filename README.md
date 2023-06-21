@@ -120,8 +120,12 @@ VERSION 2.2.3 Correcion de errores;
 
 VERSION 2.2.4 Solucion del problema de cambio de estado a la hora de elegir misiones;
 
+VERSION 2.3.0 IMplementacion de nuevas funciones;
 
+VERSION 2.3.1 Correccion de errores;
 
+VERSION 2.3.2 Correccion de errores;
 
-Nota: Hay que hacer que la funcion de modificar estado cuando la nave ya se haya mandado a mision funcione correctamente.
+VERRSION 2.3.3 
 
+VERSION 2.3.4 Implementacion de funciones de modificacion de horas y vuelos cuando se manda una mision;
