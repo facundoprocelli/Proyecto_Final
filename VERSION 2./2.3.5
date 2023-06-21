@@ -6330,3 +6330,76 @@ void buscarMisionPorTipoNave()
 
     fclose(archi);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------
+
+
+void tiposEstadoMision(char estadosMision[cantEstadosMision][maxCaracteres])
+{
+    printf("\n");
+    strcpy(estadosMision[0], "Listo");
+    strcpy(estadosMision[1], "En vuelo");
+    strcpy(estadosMision[2], "Retornada");
+    strcpy(estadosMision[3], "Cancelada");
+    strcpy(estadosMision[4], "Fallida");
+}
+
+void mostrarEstadosMision(char estadosMision[cantEstadosMision][maxCaracteres])
+{
+
+    int i = 0;
+    int pos = 1;
+
+    while (i < cantEstadosMision)
+    {
+
+
+        printf("|%i| %s \n",pos, estadosMision[i]);
+
+        pos++;
+        i++;
+    }
+}
+
+
+void  cargarEstadoMision(stMision* misio)
+{
+
+    int operador = -1;
+    char strOpcion[maxCaracteres];
+
+    char estadosMision[cantEstadosMision][maxCaracteres];
+    tiposEstadoMision(estadosMision);
+
+
+    printf("Seleccione un numero asociado a un estado\n");
+    mostrarEstadosMision(estadosMision);
+
+    fflush(stdin);
+    gets(strOpcion);
+
+
+    while(operador < 0)
+    {
+        operador = validacionNumeros(strOpcion,minimaCantidadOpciones,cantEstados);
+
+        if (operador >= minimaCantidadOpciones && operador <= cantEstadosMision)
+        {
+            strcpy(misio->estado,estadosMision[operador - 1]);
+            break;
+        }
+    }
+
+
+}
