@@ -1655,9 +1655,7 @@ void  cargarEstadoModificacionMisionListo(stMision* misio)
 void cambiarNaveAMision(stMision * misio)
 {
 
-int idNave = misio->iDNave;
-
-
+int idNave = 1002;
 
 FILE* archi = fopen(archiNave, "r+b");
 
@@ -1669,6 +1667,7 @@ while(fread(&nav, sizeof(nave),1,archi) > 0){
     if(nav.ID == idNave){
 
         strcpy(nav.estado, "Mision");
+        fseek(archi, sizeof(nave)* - 1, SEEK_CUR);
         fwrite(&nav, sizeof(nave),1,archi);
         break;
     }
