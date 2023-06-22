@@ -1482,7 +1482,7 @@ void navesPredeterminadas()
 
     navPredeterminado2.ID = 1002;
     strcpy(navPredeterminado2.tipoNave, "Falcon 9");
-    strcpy(navPredeterminado2.estado, "Lista para su uso");
+    strcpy(navPredeterminado2.estado, "Mision");
     navPredeterminado2.horasAcumuladasVuelo = 55;
     navPredeterminado2.cantVuelosRealizados = 3;
 
