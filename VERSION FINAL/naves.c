@@ -111,10 +111,11 @@ void  cargarEstado(nave* nav)
     tiposEstado(estados);
 
 
-    printf("Seleccione un numero asociado a un estado\n ESTADO: ");
+    printf("Seleccione un numero asociado a un estado\n");
     mostrarEstados(estados);
 
     fflush(stdin);
+    printf("\nESTADO: ");
     gets(strOpcion);
 
 
