@@ -2861,9 +2861,9 @@ void cargarHorasEnEEI(astronauta *astro)
 
     while(operador < 0)
     {
-        operador = validacionNumeros(strOpcion,minimaCantidadOpciones,maxCantidadHoras);
+        operador = validacionNumeros(strOpcion,0,maxCantidadHoras);
 
-        if (operador >= minimaCantidadOpciones && operador < maxCantidadHoras)
+        if (operador >= 0 && operador < maxCantidadHoras)
         {
             astro->horasAcumuladasEEI = operador;
             break;
