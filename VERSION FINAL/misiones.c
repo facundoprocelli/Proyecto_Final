@@ -669,7 +669,7 @@ int mostrarNavesDisponibles(int idDisponibles[])
 
     while (fread(&nav, sizeof(nave), 1, archi) > 0)
     {
-        if (strcmp(nav.estado, "Lista para su uso") == 0)
+        if (strcmp(nav.estado, "Lista para su uso\n") == 0)
         {
             printf("\n- %i", nav.ID);
             idDisponibles[i] = nav.ID;
@@ -898,7 +898,7 @@ int idBuscadoMision()
     while (valido == 0 && (operador < minIdMision || operador > maxIdMision))
     {
 
-        printf("Inserte el ID de la nave\n ID NAVE: ");
+        printf("Inserte el ID de la mision\n ID: ");
         fflush(stdin);
         gets(strOpcion);
 
@@ -1348,7 +1348,7 @@ void modificarMision()
 
     FILE * archi = fopen(archiMision, "r+b");
 
-    printf("Seleccione el aspecto que desea modificar de la mision: ");
+    printf("Seleccione el aspecto que desea modificar de la mision:\n");
     menuModificacionesMision();
     fflush(stdin);
     printf("\nOPCION: ");
