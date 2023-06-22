@@ -10,9 +10,6 @@
 int main()
 {
 
-    //navesPredeterminadas();
-    //astronautasPredeterminados();
-    //misionPredeterminada();
 
 
     char valor[] = "si";
