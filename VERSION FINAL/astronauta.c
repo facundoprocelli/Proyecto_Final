@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include "headers.h"
 
-
+//--------------------FUNCION PRINCIPAL-------------------------------
 void funcionAstronautas()
 {
 
@@ -180,7 +180,7 @@ void consultarAstronauta()
 
 }
 
-
+//-------------------bUSCAR aSTRONAUTAS----------------------------------
 void buscarAstronautaPorNombre()
 {
 
@@ -234,47 +234,6 @@ void buscarAstronautaPorNombre()
     fclose(archi);
 }
 
-int  validarNombreConsulta(char nombre[])
-{
-
-    FILE* archi = fopen(archiAstronauta, "rb");
-
-    astronauta astro;
-
-    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-        if (strcmp(astro.nombre, nombre) == 0)
-        {
-
-            return 1;
-        }
-
-    }
-    return 0;
-    fclose(archi);
-}
-
-void mostrarListaNombres()
-{
-    astronauta astro;
-    FILE * archi = fopen(archiAstronauta, "rb");
-
-
-    printf("\nLista de nombres \n");
-
-    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-        printf("- %s\n", astro.nombre);
-
-    }
-
-    fclose(archi);
-}
-
-
-
 void buscarAstronautaPorApellido()
 {
 
@@ -323,45 +282,6 @@ void buscarAstronautaPorApellido()
 
             mostrarDatosAstronauta(astro);
         }
-    }
-
-    fclose(archi);
-}
-
-int  validarApellidoConsulta(char apellido[])
-{
-
-    FILE* archi = fopen(archiAstronauta, "rb");
-
-    astronauta astro;
-
-    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-        if (strcmp(astro.apellido, apellido) == 0)
-        {
-
-            return 1;
-        }
-
-    }
-    return 0;
-    fclose(archi);
-}
-
-void mostrarListaApellido()
-{
-    astronauta astro;
-    FILE * archi = fopen(archiAstronauta, "rb");
-
-
-    printf("\nLista de Apellidos \n");
-
-    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-        printf("- %s\n", astro.apellido);
-
     }
 
     fclose(archi);
@@ -421,45 +341,6 @@ void buscarAstronautaPorApodo()
     fclose(archi);
 }
 
-int  validarApodoConsulta(char apodo[])
-{
-
-    FILE* archi = fopen(archiAstronauta, "rb");
-
-    astronauta astro;
-
-    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-        if (strcmp(astro.apodo, apodo) == 0)
-        {
-
-            return 1;
-        }
-
-    }
-    return 0;
-    fclose(archi);
-}
-
-void mostrarListaApodo()
-{
-    astronauta astro;
-    FILE * archi = fopen(archiAstronauta, "rb");
-
-
-    printf("\nLista de Apodos \n");
-
-    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-        printf("- %s\n", astro.apodo);
-
-    }
-
-    fclose(archi);
-}
-
 void buscarAstronautaPorEdad()
 {
 
@@ -499,87 +380,6 @@ void buscarAstronautaPorEdad()
         break;
 
     }
-
-}
-
-
-void consultarEdadExacta()
-{
-
-    int valido = 0;
-    astronauta astro;
-    astronauta aux;
-    int veces = 0;
-
-    FILE* archi = fopen(archiAstronauta,"rb");
-
-
-    mostrarListaEdades();
-
-    while (valido == 0)
-    {
-        cargarEdad(&aux);
-        valido = validarEdadConsulta(aux.edad);
-
-    }
-    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-
-        if (aux.edad == astro.edad)
-        {
-
-            mostrarDatosAstronauta(astro);
-            veces++;
-        }
-    }
-    if (veces == 0)
-    {
-        printf("\nNo hay ningun astronauta que cumple con ese requisito\n");
-    }
-
-    fclose(archi);
-
-}
-
-int validarEdadConsulta(int edad)
-{
-
-    FILE * archi = fopen(archiAstronauta, "rb");
-    astronauta astro;
-
-    while (fread(&astro, sizeof(astronauta),1, archi) > 0)
-    {
-
-
-        if (astro.edad == edad)
-        {
-
-            return 1;
-        }
-
-    }
-    return 0;
-    fclose(archi);
-}
-
-void mostrarListaEdades()
-{
-
-    astronauta astro;
-    FILE * archi = fopen(archiAstronauta, "rb");
-
-
-    printf("\nLista de Edades \n");
-
-    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
-    {
-
-        printf("- %i\n", astro.edad);
-
-    }
-
-    fclose(archi);
 
 }
 
@@ -823,6 +623,11 @@ int validarHorasConsulta(int horas)
     fclose(archi);
 }
 
+
+
+//-----------------------------CONSULTAR ASTRONAUTA-----------------------------
+
+
 void consultarHorasExactas()
 {
 
@@ -954,6 +759,109 @@ void consultarMenoresHoras()
 
 
 
+//-------------------VALIDAR CONSULTAS----------------------------------
+int  validarNombreConsulta(char nombre[])
+{
+
+    FILE* archi = fopen(archiAstronauta, "rb");
+
+    astronauta astro;
+
+    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+        if (strcmp(astro.nombre, nombre) == 0)
+        {
+
+            return 1;
+        }
+
+    }
+    return 0;
+    fclose(archi);
+}
+
+
+//-------------------MOSTRAR----------------------------------
+void mostrarListaNombres()
+{
+    astronauta astro;
+    FILE * archi = fopen(archiAstronauta, "rb");
+
+
+    printf("\nLista de nombres \n");
+
+    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+        printf("- %s\n", astro.nombre);
+
+    }
+
+    fclose(archi);
+}
+
+// MOSTRAR APELLIDO
+void mostrarListaApellido()
+{
+    astronauta astro;
+    FILE * archi = fopen(archiAstronauta, "rb");
+
+
+    printf("\nLista de Apellidos \n");
+
+    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+        printf("- %s\n", astro.apellido);
+
+    }
+
+    fclose(archi);
+}
+
+//MOSTRAR APODO
+void mostrarListaApodo()
+{
+    astronauta astro;
+    FILE * archi = fopen(archiAstronauta, "rb");
+
+
+    printf("\nLista de Apodos \n");
+
+    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+        printf("- %s\n", astro.apodo);
+
+    }
+
+    fclose(archi);
+}
+
+
+//MOSTRAR EDADES
+void mostrarListaEdades()
+{
+
+    astronauta astro;
+    FILE * archi = fopen(archiAstronauta, "rb");
+
+
+    printf("\nLista de Edades \n");
+
+    while (fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+        printf("- %i\n", astro.edad);
+
+    }
+
+    fclose(archi);
+
+}
+
+//MOSTRAR HORAS
 void mostrarListaHoras()
 {
 
@@ -973,11 +881,122 @@ void mostrarListaHoras()
     fclose(archi);
 }
 
-//-----------------------------CONSULTAR ASTRONAUTA-----------------------------
+//VALIDAR APELLIDO
+
+int  validarApellidoConsulta(char apellido[])
+{
+
+    FILE* archi = fopen(archiAstronauta, "rb");
+
+    astronauta astro;
+
+    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+        if (strcmp(astro.apellido, apellido) == 0)
+        {
+
+            return 1;
+        }
+
+    }
+    return 0;
+    fclose(archi);
+}
 
 
 
 
+//VALIDAR APODO
+int  validarApodoConsulta(char apodo[])
+{
+
+    FILE* archi = fopen(archiAstronauta, "rb");
+
+    astronauta astro;
+
+    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+        if (strcmp(astro.apodo, apodo) == 0)
+        {
+
+            return 1;
+        }
+
+    }
+    return 0;
+    fclose(archi);
+}
+
+
+//CONSULTAR EDAD
+
+void consultarEdadExacta()
+{
+
+    int valido = 0;
+    astronauta astro;
+    astronauta aux;
+    int veces = 0;
+
+    FILE* archi = fopen(archiAstronauta,"rb");
+
+
+    mostrarListaEdades();
+
+    while (valido == 0)
+    {
+        cargarEdad(&aux);
+        valido = validarEdadConsulta(aux.edad);
+
+    }
+    while(fread(&astro, sizeof(astronauta), 1, archi) > 0)
+    {
+
+
+        if (aux.edad == astro.edad)
+        {
+
+            mostrarDatosAstronauta(astro);
+            veces++;
+        }
+    }
+    if (veces == 0)
+    {
+        printf("\nNo hay ningun astronauta que cumple con ese requisito\n");
+    }
+
+    fclose(archi);
+
+}
+
+
+//VALIDADR EDAD
+int validarEdadConsulta(int edad)
+{
+
+    FILE * archi = fopen(archiAstronauta, "rb");
+    astronauta astro;
+
+    while (fread(&astro, sizeof(astronauta),1, archi) > 0)
+    {
+
+
+        if (astro.edad == edad)
+        {
+
+            return 1;
+        }
+
+    }
+    return 0;
+    fclose(archi);
+}
+
+
+
+//BUSCAR POR IEE
 void buscarAstronautaPorHorasEnIEE()
 {
 
@@ -1023,6 +1042,7 @@ void buscarAstronautaPorHorasEnIEE()
 
 }
 
+//CONSUTLAR IEE
 
 void consultarHorasIEEExacta()
 {
@@ -1062,6 +1082,8 @@ void consultarHorasIEEExacta()
     fclose(archi);
 }
 
+
+//VALIDACIONIEE
 int validarHorasIEEConsulta(int horas)
 {
 
@@ -1083,6 +1105,7 @@ int validarHorasIEEConsulta(int horas)
     fclose(archi);
 }
 
+//MOSTRAR IEE
 void mostrarListaIEE()
 {
 
@@ -1103,6 +1126,8 @@ void mostrarListaIEE()
 
 }
 
+
+//CONSULTAR IEE
 
 void consultarMayoresIEE()
 {
@@ -1206,7 +1231,7 @@ void    menuConsultaHorasIEEAstro()
 }
 
 
-
+//BUSCAR ASTRONAUTA
 
 void buscarAstronautaPorViajes()
 {
@@ -1252,6 +1277,7 @@ void buscarAstronautaPorViajes()
 
 }
 
+//CONSULTAR VIAJES
 
 void consultarViajesExacto()
 {
@@ -3067,6 +3093,5 @@ int validacionIDAstro(int id)
 
     return 0;
 }
-
 
 
