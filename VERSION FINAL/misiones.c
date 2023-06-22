@@ -1622,17 +1622,45 @@ void  cargarEstadoModificacionMisionListo(stMision* misio)
         {
             strcpy(misio->estado,estadosMision[0]);
             cambiarNaveALista(misio);
-            break;
         }
         if (operador == 2)
         {
             strcpy(misio->estado,estadosMision[1]);
-            cambiarNaveALista(misio);
+            cambiarNaveAMision(misio);
         }
     }
 
 
 }
+
+
+
+
+
+void cambiarNaveAMision(stMision * misio)
+{
+
+int idNave = misio->iDNave;
+
+FILE* archi = fopen(archiNave, "r+b");
+
+nave nav;
+
+while(fread(&nav, sizeof(nave),1,archi) > 0){
+
+
+    if(nav.ID == idNave){
+
+        strcpy(nav.estado, "Mision");
+        fwrite(&nav, sizeof(nave),1,archi);
+        break;
+    }
+
+}
+
+fclose(archi);
+}
+
 
 void tiposEstadoMisionModificacion(char estadosMision[cantEstadosMision][maxCaracteres])
 {
@@ -1874,9 +1902,6 @@ int elegirMisionEnMision()
             return operador;
         }
     }
-
-
-
 
 }
 
