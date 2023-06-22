@@ -1655,7 +1655,7 @@ void  cargarEstadoModificacionMisionListo(stMision* misio)
 void cambiarNaveAMision(stMision * misio)
 {
 
-int idNave = 1002;
+int idNave = misio->iDNave;
 
 FILE* archi = fopen(archiNave, "r+b");
 
@@ -1850,7 +1850,8 @@ void cambiarEstadoACanselada(int id)
 
 void cambiarEstadoDesdeEnVuelo(int id)
 {
-
+    FILE* archi = fopen(archiMision, "r+b");
+    stMision aux2;
     stMision aux;
     stMision misio;
 
@@ -1861,10 +1862,23 @@ void cambiarEstadoDesdeEnVuelo(int id)
     }
 
     printf("\nSeleccione el estado que quiera\n");
+
+
+ while(fread(&aux2, sizeof(stMision),1 ,archi) > 0){
+        if(aux2.ID == id){
+
+            aux.iDNave = aux2.iDNave;
+            break;
+        }
+
+    }
+
+
+
     cargarEstadoModificacionMisionEnMision(&aux);
 
 
-    FILE* archi = fopen(archiMision, "r+b");
+
 
 
     while (fread(&misio, sizeof(stMision), 1, archi) > 0)
@@ -1987,15 +2001,14 @@ void  cargarEstadoModificacionMisionEnMision(stMision* misio)
             cambiarNaveALista(misio);
         }
     }
-
-
 }
+
+
 
 void cambiarNaveALista(stMision * misio)
 {
 
 int idNave = misio->iDNave;
-
 FILE* archi = fopen(archiNave, "r+b");
 
 nave nav;
@@ -2006,6 +2019,7 @@ while(fread(&nav, sizeof(nave),1,archi) > 0){
     if(nav.ID == idNave){
 
         strcpy(nav.estado, "Lista para su uso");
+        fseek(archi, sizeof(nave)* - 1, SEEK_CUR);
         fwrite(&nav, sizeof(nave),1,archi);
         break;
     }
