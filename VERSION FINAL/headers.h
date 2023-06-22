@@ -565,4 +565,3 @@ void  cargarEstadoModificacionMisionEnMision(stMision* misio);
 void  cargarEstadoModificacionMisionListo(stMision* misio);
 
 int cargarNuevaMision(stMision * misio);
-
