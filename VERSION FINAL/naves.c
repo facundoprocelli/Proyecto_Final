@@ -6,7 +6,7 @@
 
 
 
-
+//CARGAR TIPO DE NAVE
 void cargarTipoNave(nave* nav)
 {
 
@@ -38,6 +38,8 @@ void cargarTipoNave(nave* nav)
 }
 
 
+
+// MOSTRAR TIPO DE NAVE
 void mostrarTipoNave(char tiposNaves[cantTiposNave][maxCaracteres])
 {
 
@@ -56,7 +58,7 @@ void mostrarTipoNave(char tiposNaves[cantTiposNave][maxCaracteres])
 }
 
 
-
+//MENU TIPOS DE NAVES
 void menuTiposNave(char tiposNave[cantTiposNave][maxCaracteres])
 {
 
@@ -68,7 +70,7 @@ void menuTiposNave(char tiposNave[cantTiposNave][maxCaracteres])
 
 
 
-
+//TIPOS DE ESTADOS
 void tiposEstado(char estados[cantEstados][maxCaracteres])
 {
     printf("\n");
@@ -78,7 +80,7 @@ void tiposEstado(char estados[cantEstados][maxCaracteres])
     strcpy(estados[3], "De baja");
 }
 
-
+//MOSTRAR ESTADOS
 
 void mostrarEstados(char estados[cantEstados][maxCaracteres])
 {
@@ -98,7 +100,7 @@ void mostrarEstados(char estados[cantEstados][maxCaracteres])
 }
 
 
-
+//CARGAR ESTADO
 void  cargarEstado(nave* nav)
 {
 
@@ -135,7 +137,7 @@ void  cargarEstado(nave* nav)
 
 //----------------------------------------------------------------------------------------
 
-
+//ID BUSCADO
 int idBuscadoNave()
 {
 
@@ -168,6 +170,8 @@ int idBuscadoNave()
 
 }
 
+//cONOCER CANTIDAD DE ELEMENTOS EN UN ARCHIVO
+
 int tamanoArchiNave()
 {
     FILE *fich =fopen(archiNave,"rb");
@@ -195,6 +199,8 @@ int ultimoIdNave()
 
 }
 
+
+//VALIDAR ID NAVE
 int validacionIDNave(int id)
 {
 
@@ -231,7 +237,7 @@ void mostrarIDNave()
 
 
 
-
+//--------------------------CARGAR NUEVA NAVE---------------------------
 void cargarNuevaNave(nave* nav)
 {
 
@@ -252,7 +258,7 @@ void cargarNuevaNave(nave* nav)
     fclose(archi);
 }
 
-
+//------------------MOSTRAR NAVES---------------------
 
 void mostrarNaves()
 {
@@ -444,6 +450,7 @@ void mostrarDatosNave(nave nav)
 
 }
 
+//bUSCAR POR ID
 
 void buscarNavePorId()
 {
@@ -484,7 +491,7 @@ void mostrarListaIDNave()
     fclose(archi);
 }
 
-
+//MENU ID NAVE
 
 void menuIDNave()
 {
@@ -543,6 +550,8 @@ void menuModificacionesNave()
 
 }
 
+
+//----------------MODIFICAR NAVE----------------------
 
 void modificarNave()
 {
@@ -758,6 +767,8 @@ void menuOpcionesFuncionesNave()
 
 }
 
+
+//-----------------CARGAR NUEVAS COSAS------------------------------
 void funcionNaves()
 {
     nave nav;
@@ -839,6 +850,8 @@ void funcionNaves()
 
 }
 
+
+//--------------MENU COSNULTAS NAVES------------------------
 void consultarNaves()
 {
 
@@ -898,6 +911,8 @@ void consultarNaves()
 
 }
 
+
+//--------------------MENU CONSULTA NAVE------------------
 void menuConsultasNave()
 {
 
@@ -909,7 +924,7 @@ void menuConsultasNave()
 
 }
 
-
+//------------------BUSCAR NAVES SEGUN SU ESTADO--------------------------------
 void buscarNavesPorEstado()
 {
 
@@ -1015,6 +1030,8 @@ void buscarNavePorVuelos()
 }
 
 
+//CONSULTAR VUELOS NAVE-------------
+
 void consultarVuelosExactoNave()
 {
 
@@ -1052,6 +1069,8 @@ void consultarVuelosExactoNave()
 
 }
 
+
+//VALIDAR VUELOS NAVE
 int validarVuelosNave(int vuelos)
 {
 
@@ -1072,6 +1091,8 @@ int validarVuelosNave(int vuelos)
     return 0;
 }
 
+//MOSTRAR LISTA VALIDADA
+
 void mostrarListaVuelosNave()
 {
 
@@ -1091,6 +1112,7 @@ void mostrarListaVuelosNave()
     fclose(archi);
 
 }
+
 
 
 void consultarMayoresVuelosNave()
@@ -1182,7 +1204,7 @@ void consultarMenoresVuelosNAve()
 }
 
 
-
+//-------------------------BUSCAR NAVES POR HORA-------------------
 void buscarNavePorHoras()
 {
 
@@ -1404,7 +1426,7 @@ void consultarMenoresHorasNave()
 
 
 
-
+//-------------------------CAMBIAR ESTADO NAVE--------------------------
 
 void cambiarEstadoNave()
 {
@@ -1438,7 +1460,7 @@ void cambiarEstadoNave()
 }
 
 
-
+//-------------------------------NAVES PREDETERMIANDAS--------------------------
 void navesPredeterminadas()
 {
 
@@ -1460,7 +1482,7 @@ void navesPredeterminadas()
 
     navPredeterminado2.ID = 1002;
     strcpy(navPredeterminado2.tipoNave, "Falcon 9");
-    strcpy(navPredeterminado2.estado, "Mision");
+    strcpy(navPredeterminado2.estado, "Lista para su uso");
     navPredeterminado2.horasAcumuladasVuelo = 55;
     navPredeterminado2.cantVuelosRealizados = 3;
 
