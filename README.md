@@ -76,17 +76,17 @@ VERSION 1.1.1 Implementacion parcial de nuevas verificaciones mas efectivas para
 
 VERSION 1.1.2 Sigue La implementacion de la verificación en las funciones necesarias
 
-VERSION 1.1.3
+VERSION 1.1.3 Correcion de errores;
 
-VERSION 1.1.4
+VERSION 1.1.4 Correcion de estilos y errores;
 
-VERSION 1.1.5
+VERSION 1.1.5 Implementacion de funciones de consulta en astronautas;
+ 
+VERSION 1.1.6 Correcion de errores;
 
-VERSION 1.1.6
+VERSION 1.1.7 Implementacion de funciones Naves;
 
-VERSION 1.1.7
-
-VERSION 1.1.8
+VERSION 1.1.8 Implementacion de fucniones varias;
 
 VERSION 1.1.9 Correcion de errores;
 
@@ -126,12 +126,34 @@ VERSION 2.3.1 Correccion de errores;
 
 VERSION 2.3.2 Correccion de errores;
 
-VERRSION 2.3.3 
+VERRSION 2.3.3  Implementacion de funciones de ID;
 
 VERSION 2.3.4 Implementacion de funciones de modificacion de horas y vuelos cuando se manda una mision;
 
-VERSION 2.3.5
+VERSION 2.3.5 Correcion de errores
 
-VERSION 2.3.6
+VERSION 2.3.6 Implementacion de funciones de consulta;
 
 VERSION 2.3.7 Unificacion de codigos
+
+VERSION 2.3.8 Correcion de errores;
+
+VERSION 2.3.8 Implementacion de funciones y correcion de errores;
+
+VERSION 2.4.0 NUevas funciones de modificacion de estado de misiones, naves y astro;
+
+VERSION 2.4.1 Correcion de errores;
+
+VERIOSN 2.4.2 Correcion de funcion de reinicar;
+
+VERSION 2.4.3 Correcion de errores;
+
+VERISON 2.4.4 Unificacion de codigos;
+
+VERSION 2.5.0 Correcion de erroes;
+
+VERSION 2.5.1 Implementacion de funciones;
+
+VERISON 2.5.2 Correcion de errores y estilos;
+
+VERSION 2.6.0 Correcion de errores, estilos y finalizacion parcial del proyecto;
