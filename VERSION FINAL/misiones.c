@@ -719,7 +719,7 @@ int mostrarNavesDisponibles(int idDisponibles[])
     return i;
 }
 
-//VALIDAR NAVE MISION 
+//VALIDAR NAVE MISION
 int validarIdNaveMision(int idDisponibles[], int operador, int validos)
 {
 
@@ -1286,7 +1286,7 @@ void  cargarEstadoMision(stMision* misio)
 
     while(operador < 0)
     {
-        operador = validacionNumeros(strOpcion,minimaCantidadOpciones,cantEstados);
+        operador = validacionNumeros(strOpcion,minimaCantidadOpciones,cantEstadosMision);
 
         if (operador >= minimaCantidadOpciones && operador <= cantEstadosMision)
         {
@@ -1297,7 +1297,7 @@ void  cargarEstadoMision(stMision* misio)
 }
 
 
-//BUSCAR MISION POR ESTADO 
+//BUSCAR MISION POR ESTADO
 void buscarMisionPorEstado()
 {
 
@@ -2099,4 +2099,3 @@ void tiposEstadoMisionModificacionEnVuelo(char estadosMision[2][maxCaracteres])
     strcpy(estadosMision[1], "Retornada");
 
 }
-
