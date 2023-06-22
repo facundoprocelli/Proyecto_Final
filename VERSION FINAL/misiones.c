@@ -1880,7 +1880,7 @@ void cambiarEstadoDesdeEnVuelo(int id)
 
 
 
-
+    fseek(archi,0, SEEK_SET);
     while (fread(&misio, sizeof(stMision), 1, archi) > 0)
     {
         if (misio.ID == id)
