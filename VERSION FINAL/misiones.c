@@ -1564,15 +1564,29 @@ void  cargarEstadoModificacionMision(stMision* misio)
 
 void cambiarEstadoDesdeListo(int id)
 {
+    FILE* archi = fopen(archiMision, "r+b");
+
     stMision aux;
     stMision misio;
+    stMision aux2;
 
     printf("\nSeleccione el estado que quiera\n");
+
+    while(fread(&aux2, sizeof(stMision),1 ,archi) > 0){
+        if(aux2.ID == id){
+
+            aux.iDNave = aux2.iDNave;
+            break;
+        }
+
+    }
+
     cargarEstadoModificacionMisionListo(&aux);
 
 
-    FILE* archi = fopen(archiMision, "r+b");
 
+
+    fseek(archi,0, SEEK_SET);
 
     while (fread(&misio, sizeof(stMision), 1, archi) > 0)
     {
@@ -1623,6 +1637,7 @@ void  cargarEstadoModificacionMisionListo(stMision* misio)
             strcpy(misio->estado,estadosMision[0]);
             cambiarNaveALista(misio);
         }
+
         if (operador == 2)
         {
             strcpy(misio->estado,estadosMision[1]);
@@ -1641,6 +1656,8 @@ void cambiarNaveAMision(stMision * misio)
 {
 
 int idNave = misio->iDNave;
+
+
 
 FILE* archi = fopen(archiNave, "r+b");
 
