@@ -1664,6 +1664,7 @@ int elegirMisionLista()
     int maxIdMisio = ultimoIdMision() - 1;
 
     fflush(stdin);
+    printf("\nID: ");
     gets(strOpcion);
 
 
@@ -1690,10 +1691,11 @@ int mostrarMisionesListas()
     FILE * archi = fopen(archiMision, "rb");
     stMision misio;
     int veces = 0;
+    printf("Lista de Misiones Listas\n");
     while (fread(&misio, sizeof(stMision), 1, archi) > 0)
     {
 
-        printf("Lista de Misiones Listas\n");
+
         if( strcmp(misio.estado, "Listo") == 0)
         {
 
@@ -2012,4 +2014,3 @@ void cambiarEstadoAFallida(int id)
 
 
 }
-
