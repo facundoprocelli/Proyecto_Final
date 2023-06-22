@@ -5,34 +5,34 @@
 #include <ctype.h>
 
 //-------------------CONSTANTES---------------------------------
-#define maxCaracteres         100
-#define cantNacionalidades    213
-#define cantEspecialidades    5
-#define cantidadOpciones 6
-#define cantTiposNave         3
-#define cantEstados           4
-#define minimaCantidadOpciones 1
-#define maxCantidadMenu 2
-#define maxCantidadOpciones 3
-#define maxCantidadModificacionesAstro 10
-#define edadMaxima 100
-#define edadMinima 18
-#define maxCantidadHoras 10000
-#define maxcantidadViajes 500
-#define maxCantidadModificacionesNave 4
-#define minIdAstro 101
-#define minIdNave 1001
-#define cantidadTipoBusquedaEdad 3
-#define cantEstadosNave 5
-#define detalleDeMision 200
-#define cantCargamentos 6
-#define cantDestinos 6
-#define maxTripulates 3
-#define maxCantidadModificacionesMision 6
-#define minIdMision 1
-#define cantEstadosMision 5
-#define cantOpcionesMostrarMisiones 4
-#define estadiaEnIEE 200
+#define maxCaracteres                    100
+#define cantNacionalidades               213
+#define cantEspecialidades               5
+#define cantidadOpciones                 6
+#define cantTiposNave                    3
+#define cantEstados                      4
+#define minimaCantidadOpciones           1
+#define maxCantidadMenu                  2
+#define maxCantidadOpciones              3
+#define maxCantidadModificacionesAstro   10
+#define edadMaxima                       100
+#define edadMinima                       18
+#define maxCantidadHoras                 10000
+#define maxcantidadViajes                500
+#define maxCantidadModificacionesNave    4
+#define minIdAstro                       101
+#define minIdNave                        1001
+#define cantidadTipoBusquedaEdad         3
+#define cantEstadosNave                  5
+#define detalleDeMision                  200
+#define cantCargamentos                  6
+#define cantDestinos                     6
+#define maxTripulates                    3
+#define maxCantidadModificacionesMision  6
+#define minIdMision                      1
+#define cantEstadosMision                5
+#define cantOpcionesMostrarMisiones      4
+#define estadiaEnIEE                     200
 
 
 //---------------------------ARCHIVOS----------------------------
