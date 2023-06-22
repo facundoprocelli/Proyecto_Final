@@ -43,7 +43,7 @@
 
 
 //-------------------ESTRUCTURAS------------------------------------
-//ASTRONAUTA
+//------------------ASTRONAUTA--------------------------------------
 typedef struct
 {
     int  ID;
@@ -60,7 +60,7 @@ typedef struct
 } astronauta;
 
 
-//NAVE
+//-------------------------NAVE------------------------
 typedef struct
 {
 
@@ -71,7 +71,7 @@ typedef struct
     char estado[maxCaracteres];
 } nave;
 
-//MISIONES
+//--------------------------MISIONES---------------------
 
 
 
@@ -119,7 +119,7 @@ void cargarHorasEnEEI(astronauta *astro);
 void cargarMisionesEspaciales(astronauta *astro);
 
 
-//MOSTRAR COSAS
+//---------------------MOSTRAR COSAS------------------
 
 void mostrarDatosAstronauta(astronauta astronauta);
 
@@ -156,7 +156,7 @@ void mostrarIDAstro();
 
 
 
-//VALIDACIONES
+//----------------------VALIDACIONES------------------------
 
 int  validacionEdad(int edad);
 
@@ -304,17 +304,17 @@ void consultarMenoresViajesAstro();
 void    menuConsultaViajesAstro();
 
 
-//SALUDO FINAL
+//----------------------------SALUDO FINAL---------------------
 
 void saludoFinal(char valor[2]);
 
 void mostrarOpcionesPrincipales();
 
 //-------------------------------------------------------------------------------------------------------------------
-//NAVES
+//------------------------NAVES-----------------------------
 
 
-//TIPO DE NAVE
+//-----------------------TIPO DE NAVE--------------------------
 void cargarTipoNave(nave* nav);
 
 void mostrarTipoNave(char tiposNaves[cantTiposNave][maxCaracteres]);
@@ -329,7 +329,7 @@ int validarHorasNave(int vuelos);
 
 
 
-//ESTADO
+//---------------------ESTADO----------------------------
 void tiposEstado(char estados[cantEstados][maxCaracteres]);
 
 void mostrarEstados(char estados[cantEstados][maxCaracteres]);
@@ -339,7 +339,7 @@ int validacionEstado(int seleccion);
 void cargarEstado(nave* nav);
 
 
-//ID
+//------------------------------ID-------------------------
 int ultimoIdNave();
 
 int tamanoArchiNave();
