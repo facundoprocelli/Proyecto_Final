@@ -118,6 +118,7 @@ int cargarNuevaMision(stMision * misio)
 
     }
 
+    strcpy(misio->estado,"Listo");
     printf("ID NAVE: %i\n", misio->iDNave);
 
 
@@ -452,7 +453,7 @@ int cargarIdNaveMision(stMision* misio)
 
     while (valido == 0)
     {
-        printf("ID: ");
+        printf("\nID: ");
         fflush(stdin);
         gets(strOpcion);
 
@@ -669,7 +670,7 @@ int mostrarNavesDisponibles(int idDisponibles[])
 
     while (fread(&nav, sizeof(nave), 1, archi) > 0)
     {
-        if (strcmp(nav.estado, "Lista para su uso\n") == 0)
+        if (strcmp(nav.estado, "Lista para su uso") == 0)
         {
             printf("\n- %i", nav.ID);
             idDisponibles[i] = nav.ID;
@@ -2011,5 +2012,4 @@ void cambiarEstadoAFallida(int id)
 
 
 }
-
 
