@@ -5,7 +5,7 @@
 #include "headers.h"
 
 
-
+//---------------------MENU OPCIONES FUNCIONES MISIONES-----------------
 
 void menuOpcionesFuncionesMisiones()
 {
@@ -20,6 +20,8 @@ void menuOpcionesFuncionesMisiones()
 
 }
 
+
+//------------FUNCION MISION PRINCIPAL---------------
 void funcionMisiones()
 {
     stMision misio;
@@ -99,7 +101,7 @@ void funcionMisiones()
 
 
 
-
+//--------------------CARGAR NUEVA MISION----------------
 
 int cargarNuevaMision(stMision * misio)
 {
@@ -151,6 +153,9 @@ int cargarNuevaMision(stMision * misio)
     fclose(archi);
 }
 
+
+
+//--------------CAMBIAR HORAS DE VUELO ASTRONAUTAS----------------------
 void cambiarHorasDeVueloAstro(char lugar[], int id, int id1, int id2)
 {
 
@@ -219,6 +224,8 @@ void cambiarHorasAstronautas(int posicion, int id)
 
 
 
+//-----------CAMBIAR VUELOS HECHOS-----------------
+
 void cambiarVuelosHechosAstronauta(int id)
 {
 
@@ -275,6 +282,10 @@ void menuHorasDeViaje(int horasDeViaje[])
 
 }
 
+
+
+
+
 int buscarPosicionLugar(char cargamentos[][maxCaracteres], char lugar[])
 {
 
@@ -301,7 +312,7 @@ int buscarPosicionLugar(char cargamentos[][maxCaracteres], char lugar[])
 
 
 
-
+//---------------------CARGAR TRIPULANTES MISION-----------------------
 
 
 int cargarTripulantesMision(stMision * misio)
@@ -355,6 +366,8 @@ int cargarTripulantesMision(stMision * misio)
     return 1;
 }
 
+
+
 int validarIdAstronautaMision(int tripulates[], int operador, int validos)
 {
 
@@ -371,6 +384,8 @@ int validarIdAstronautaMision(int tripulates[], int operador, int validos)
 
     return 0;
 }
+
+//MOSTRAR TRIPULANTES ACTIVOS
 
 int mostrarListaTripulantesActivos(int tripulantes[])
 {
@@ -405,6 +420,8 @@ int mostrarListaTripulantesActivos(int tripulantes[])
     return i;
 }
 
+
+//CONFIRMAR QUE EL ID CUMPLE CON LO REQUERIDO
 int confirmacion(int dato)
 {
 
@@ -429,6 +446,10 @@ int confirmacion(int dato)
     fclose(archi);
     return 1;
 }
+
+
+
+//------------------CARGAR ID MISION-------------------
 
 int cargarIdNaveMision(stMision* misio)
 {
@@ -480,7 +501,7 @@ int cargarIdNaveMision(stMision* misio)
 }
 
 
-
+//--------------CAMBIAR ESTADO DE MISION-----------------------
 void cambiarEstadoNaveEnMision(int id)
 {
 
@@ -507,6 +528,9 @@ void cambiarEstadoNaveEnMision(int id)
 
     fclose(archi);
 }
+
+
+//--------------------CAMBIAR VUELOS HECHOS POR NAVE-----------------------------------
 
 void cambiarHorasDeVueloNave(int id, char lugar[])
 {
@@ -592,7 +616,7 @@ void cambiarHorasNaveMisio(int posicion, int id)
     fclose(archi);
 }
 
-
+//----------------MOSTRAR DATOS MISION-------------------------
 void mostrarDatosMision(stMision *misio)
 {
     printf("\nID------------------------------- %i",misio->ID);
@@ -604,6 +628,8 @@ void mostrarDatosMision(stMision *misio)
     printf("\nDETALLE-------------------------- %s\n\n",misio->detalleMision);
 
 }
+
+//MISION PREDETERMIANDA-------------
 
 void misionPredeterminada()
 {
@@ -630,6 +656,8 @@ void misionPredeterminada()
 
 }
 
+
+//TAMAÑO DE ARCHIVO PARA SABER LA CANTIDAD DE ELEMENTOS
 
 int tamanoArchiMisio()
 {
@@ -659,6 +687,7 @@ int ultimoIdMision()
 
 }
 
+//MOSTRAR NAVES
 
 int mostrarNavesDisponibles(int idDisponibles[])
 {
@@ -689,6 +718,8 @@ int mostrarNavesDisponibles(int idDisponibles[])
     fclose(archi);
     return i;
 }
+
+//VALIDAR NAVE MISION 
 int validarIdNaveMision(int idDisponibles[], int operador, int validos)
 {
 
@@ -705,6 +736,8 @@ int validarIdNaveMision(int idDisponibles[], int operador, int validos)
     return 0;
 }
 
+
+//CARGAR CARGAMENTO DE LA MISION--------------------
 void menuCargamento(char menuCargamentoMision[][maxCaracteres])
 {
 
@@ -774,6 +807,7 @@ void mostrarMenuCargamento(char menuCargamentoMision[][maxCaracteres])
 
 
 
+//CARGAR DESTINO MISION----------------------
 void cargarDestinoMision(stMision * misio)
 {
 
@@ -824,6 +858,8 @@ void mostrarMenuDestino(char menuDestinoMision[][maxCaracteres])
 }
 
 
+
+//CARGAR DETALLE DE LA MISION-----------------------------
 void cargarDetalleMision(stMision * misio)
 {
 
@@ -838,6 +874,8 @@ void cargarDetalleMision(stMision * misio)
 }
 
 
+
+//MOSTRAR ARCHIVO MISION--------------------------------
 void mostrarArchivoMisiones()
 {
 
@@ -1052,7 +1090,7 @@ void consultarMisiones()
     }
 }
 
-
+//BUSCAR POR CARGAMENTO
 
 void buscarMisionPorCargamento()
 {
@@ -1088,6 +1126,8 @@ void buscarMisionPorCargamento()
 
 }
 
+
+//BUSCAR POR DESTINO
 void buscarMisionPorDestino()
 {
 
@@ -1122,7 +1162,7 @@ void buscarMisionPorDestino()
 }
 
 
-
+//BUSCAR POR TIPO
 int buscarMisionPorTipoAux(int iguales[])
 {
 
@@ -1157,7 +1197,7 @@ int buscarMisionPorTipoAux(int iguales[])
 }
 
 
-
+//BUSCAR POR TIPO NAVE
 void buscarMisionPorTipoNave()
 {
     int iguales[maxCantidadHoras];
@@ -1194,6 +1234,8 @@ void buscarMisionPorTipoNave()
     fclose(archi);
 }
 
+
+//TIPOS DE ESTADO
 void tiposEstadoMision(char estadosMision[cantEstadosMision][maxCaracteres])
 {
     printf("\n");
@@ -1221,6 +1263,8 @@ void mostrarEstadosMision(char estadosMision[cantEstadosMision][maxCaracteres])
     }
 }
 
+
+//CARGAR ESTADO DE LA MISION
 
 void  cargarEstadoMision(stMision* misio)
 {
@@ -1253,7 +1297,7 @@ void  cargarEstadoMision(stMision* misio)
 }
 
 
-
+//BUSCAR MISION POR ESTADO 
 void buscarMisionPorEstado()
 {
 
@@ -1284,7 +1328,7 @@ void buscarMisionPorEstado()
 }
 
 
-
+//--------------------------MOSTRAR MISIONES ----------------
 
 void mostrarMisiones()
 {
@@ -1339,7 +1383,7 @@ void mostrarListaOpcionesMostrarMisiones()
     printf("|4| Mostrar mostrar misiones por destino\n");
 }
 
-
+//---------------------------MODIFICAR MISION--------------------------------
 
 void modificarMision()
 {
@@ -1403,7 +1447,7 @@ void menuModificacionesMision()
 
 }
 
-
+//CAMBIAR DESTINO-----------
 void cambiarDestinoMision()
 {
     menuIDMision();
@@ -1431,6 +1475,8 @@ void cambiarDestinoMision()
 
     fclose(archi);
 }
+
+//CAMBIAR CARGAMENTO
 
 void cambiarCargamentoMision()
 {
@@ -1460,7 +1506,7 @@ void cambiarCargamentoMision()
     fclose(archi);
 }
 
-
+//CAMBIAR DETALLE
 void cambiarDetalleMision()
 {
     menuIDMision();
@@ -1489,7 +1535,7 @@ void cambiarDetalleMision()
     fclose(archi);
 }
 
-
+//--------------CAMBIAR ESTADO DE MISION--------------------------
 void cambiarEstadoMision()
 {
 
@@ -1526,6 +1572,8 @@ void cambiarEstadoMision()
 
 }
 
+
+//CARGAR LA MODIFICACION
 void  cargarEstadoModificacionMision(stMision* misio)
 {
 
@@ -1561,7 +1609,7 @@ void  cargarEstadoModificacionMision(stMision* misio)
 
 
 
-
+//CAMBIAR DESDE EL ESTADO LISTO
 void cambiarEstadoDesdeListo(int id)
 {
     FILE* archi = fopen(archiMision, "r+b");
@@ -1608,6 +1656,7 @@ void cambiarEstadoDesdeListo(int id)
 }
 
 
+//CARGAR MODIFICACION DESDE LISTO
 
 void  cargarEstadoModificacionMisionListo(stMision* misio)
 {
@@ -1650,7 +1699,7 @@ void  cargarEstadoModificacionMisionListo(stMision* misio)
 
 
 
-
+//CAMBIAR DESDE MISION
 
 void cambiarNaveAMision(stMision * misio)
 {
@@ -1688,7 +1737,7 @@ void tiposEstadoMisionModificacion(char estadosMision[cantEstadosMision][maxCara
 
 }
 
-
+//ELEGIR MISIONES QUE ESTEN LISTAS
 
 int elegirMisionLista()
 {
@@ -1727,6 +1776,8 @@ int elegirMisionLista()
 
 }
 
+
+//MOSTRAR MISIONES LISTAS
 
 int mostrarMisionesListas()
 {
@@ -1783,6 +1834,8 @@ void mostrarDosEstados(char estadosMision[][maxCaracteres])
 }
 
 
+//CAMBIAR ESTADO A EN VUELO DESDE LISTA
+
 void cambiarEstadoAEnVuelo(int id)
 {
 
@@ -1813,7 +1866,7 @@ void cambiarEstadoAEnVuelo(int id)
 }
 
 
-
+//CAMBIAR ESTADO A CNACELADA DESDE LISTA
 void cambiarEstadoACanselada(int id)
 {
 
@@ -1846,7 +1899,7 @@ void cambiarEstadoACanselada(int id)
 
 
 
-
+//CAMBAIR ESTADO DESDE EN VUELO
 
 void cambiarEstadoDesdeEnVuelo(int id)
 {
@@ -1900,6 +1953,10 @@ void cambiarEstadoDesdeEnVuelo(int id)
     fclose(archi);
 }
 
+
+
+
+//ELEGIR MISION QUE ESTE EN VUELO
 int elegirMisionEnMision()
 {
 
@@ -1935,7 +1992,7 @@ int elegirMisionEnMision()
 
 }
 
-
+//MOSTRAR MISIONES EN VUELO
 int mostrarMisionesEnVuelo()
 {
 
@@ -1964,6 +2021,9 @@ int mostrarMisionesEnVuelo()
     fclose(archi);
 }
 
+
+
+//CARGAR EL ESTDO EN MISION
 
 void  cargarEstadoModificacionMisionEnMision(stMision* misio)
 {
@@ -2003,7 +2063,7 @@ void  cargarEstadoModificacionMisionEnMision(stMision* misio)
     }
 }
 
-
+//CAMBIA LA NAVE A LISTA
 
 void cambiarNaveALista(stMision * misio)
 {
@@ -2029,6 +2089,8 @@ while(fread(&nav, sizeof(nave),1,archi) > 0){
 fclose(archi);
 }
 
+
+
 void tiposEstadoMisionModificacionEnVuelo(char estadosMision[2][maxCaracteres])
 {
 
@@ -2037,5 +2099,4 @@ void tiposEstadoMisionModificacionEnVuelo(char estadosMision[2][maxCaracteres])
     strcpy(estadosMision[1], "Retornada");
 
 }
-
 
