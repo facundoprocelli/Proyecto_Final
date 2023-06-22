@@ -417,7 +417,7 @@ int confirmacion(int dato)
 
         for(i = 0; i <= 2; i++)
         {
-            if ( misio.tripulacion[i] == dato)
+            if (misio.tripulacion[i] == dato && (strcmp(misio.estado,"Listo") == 0 || strcmp(misio.estado, "En vuelo") == 0 ))
             {
                 fclose(archi);
                 return 0;
@@ -1493,8 +1493,6 @@ void cambiarDetalleMision()
 void cambiarEstadoMision()
 {
 
-
-
     stMision aux;
 
     printf("\nSeleccione el estado actual de la nave que desea modificar\n");
@@ -1513,6 +1511,7 @@ void cambiarEstadoMision()
 
 
     }
+
     else if (strcmp(aux.estado,"En vuelo" ) == 0)
     {
         int id = elegirMisionEnMision();
@@ -1622,13 +1621,13 @@ void  cargarEstadoModificacionMisionListo(stMision* misio)
         if (operador == 1)
         {
             strcpy(misio->estado,estadosMision[0]);
-
+            cambiarNaveALista(misio);
             break;
         }
         if (operador == 2)
         {
             strcpy(misio->estado,estadosMision[1]);
-
+            cambiarNaveALista(misio);
         }
     }
 
@@ -1816,6 +1815,7 @@ void cambiarEstadoDesdeEnVuelo(int id)
     {
         return 0;
     }
+
     printf("\nSeleccione el estado que quiera\n");
     cargarEstadoModificacionMisionEnMision(&aux);
 
@@ -1887,10 +1887,11 @@ int mostrarMisionesEnVuelo()
     FILE * archi = fopen(archiMision, "rb");
     stMision misio;
     int veces = 0;
+    printf("Lista de Misiones En Vuelo\n");
     while (fread(&misio, sizeof(stMision), 1, archi) > 0)
     {
 
-        printf("Lista de Misiones En Vuelo\n");
+
         if( strcmp(misio.estado, "En vuelo") == 0)
         {
 
@@ -1935,17 +1936,42 @@ void  cargarEstadoModificacionMisionEnMision(stMision* misio)
         if (operador == 1)
         {
             strcpy(misio->estado,estadosMision[0]);
+            cambiarNaveALista(misio);
 
             break;
         }
         if (operador == 2)
         {
             strcpy(misio->estado,estadosMision[1]);
-
+            cambiarNaveALista(misio);
         }
     }
 
 
+}
+
+void cambiarNaveALista(stMision * misio)
+{
+
+int idNave = misio->iDNave;
+
+FILE* archi = fopen(archiNave, "r+b");
+
+nave nav;
+
+while(fread(&nav, sizeof(nave),1,archi) > 0){
+
+
+    if(nav.ID == idNave){
+
+        strcpy(nav.estado, "Lista para su uso");
+        fwrite(&nav, sizeof(nave),1,archi);
+        break;
+    }
+
+}
+
+fclose(archi);
 }
 
 void tiposEstadoMisionModificacionEnVuelo(char estadosMision[2][maxCaracteres])
@@ -1957,60 +1983,4 @@ void tiposEstadoMisionModificacionEnVuelo(char estadosMision[2][maxCaracteres])
 
 }
 
-void cambiarEstadoARetornada(int id)
-{
 
-    stMision misio;
-    FILE * archi = fopen(archiMision, "r+b");
-
-
-    char estadoNuevo[maxCaracteres] = "Retornada";
-
-    while (fread(&misio, sizeof(stMision), 1, archi) > 0)
-    {
-
-        if(misio.ID == id)
-        {
-
-            strcpy(misio.estado,estadoNuevo);
-
-            fseek(archi, sizeof(stMision) * -1, SEEK_CUR);
-            fwrite(&misio, sizeof(stMision),1,archi);
-
-            break;
-        }
-    }
-
-    fclose(archi);
-
-
-}
-
-void cambiarEstadoAFallida(int id)
-{
-
-    stMision misio;
-    FILE * archi = fopen(archiMision, "r+b");
-
-
-    char estadoNuevo[maxCaracteres] = "Fallida";
-
-    while (fread(&misio, sizeof(stMision), 1, archi) > 0)
-    {
-
-        if(misio.ID == id)
-        {
-
-            strcpy(misio.estado,estadoNuevo);
-
-            fseek(archi, sizeof(stMision) * -1, SEEK_CUR);
-            fwrite(&misio, sizeof(stMision),1,archi);
-
-            break;
-        }
-    }
-
-    fclose(archi);
-
-
-}
