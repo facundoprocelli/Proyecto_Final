@@ -33,7 +33,7 @@
 #define cantEstadosMision                5
 #define cantOpcionesMostrarMisiones      4
 #define estadiaEnIEE                     200
-
+#define maxCantidadOpcionesMain          4
 
 //---------------------------ARCHIVOS----------------------------
 
