@@ -26,9 +26,9 @@ int main()
 
         while(operador < 0)
         {
-            operador = validacionNumeros(strOpcion,minimaCantidadOpciones,maxCantidadOpciones);
+            operador = validacionNumeros(strOpcion,minimaCantidadOpciones,maxCantidadOpcionesMain);
 
-            if (operador > minimaCantidadOpciones && operador <= maxCantidadOpciones)
+            if (operador > minimaCantidadOpciones && operador <= maxCantidadOpcionesMain)
             {
                 break;
             }
@@ -50,6 +50,10 @@ int main()
 
         case 3:
             funcionMisiones();
+            break;
+
+        case 4:
+            reiniciarSistema();
             break;
 
         default:
@@ -78,7 +82,6 @@ int main()
 
         if(strcmp(valor, "no") == 0)
         {
-            reiniciarSistema();
             saludoFinal(valor);
         }
     }
@@ -126,7 +129,8 @@ void mostrarOpcionesPrincipales()
 
     printf("\n|1| ASTRONAUTAS");
     printf("\n|2| NAVES");
-    printf("\n|3| MISIONES\n");
+    printf("\n|3| MISIONES");
+    printf("\n|4| REINICAR SISTEMA\n");
 
 }
 
@@ -224,7 +228,6 @@ int validacionString(char string[maxCaracteres])
     return 1;
 }
 //---------------------------------------------------------------------------------------------------------------------
-
 
 
 
